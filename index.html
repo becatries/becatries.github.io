@@ -187,16 +187,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .fine { margin: 16px 0 0; font-size: 14px; color: var(--soft); }
 .fine a { font-weight: 700; color: var(--sage-deep); }
 
-/* process teaser */
-.teaser { padding-block: 64px 24px; }
-.teaser a.card-link { display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 22px; text-decoration: none; background: linear-gradient(120deg, #D9F0F7, #E8F0D2 55%, #FFF6C6); border-radius: 30px; padding: 26px 28px; box-shadow: var(--shadow); transition: transform .3s cubic-bezier(.3,1.5,.5,1); }
-.teaser a.card-link:hover { transform: translateY(-4px) rotate(-.4deg); }
-.teaser .ico { width: 64px; height: 64px; border-radius: 20px; background: #fff; display: grid; place-items: center; font-size: 30px; box-shadow: 0 8px 18px rgba(70,60,30,0.14); }
-.teaser h3 { font-size: clamp(24px, 3.6vw, 36px); }
-.teaser p { margin: 6px 0 0; color: var(--soft); font-size: 14.5px; }
-.teaser .go { font-weight: 800; font-size: 15px; background: var(--sage-deep); color: #fff; border-radius: 999px; padding: 11px 18px; white-space: nowrap; }
-@media (max-width: 720px) { .teaser a.card-link { grid-template-columns: 1fr; } }
-
 /* collab */
 .collab { padding-block: 64px 72px; }
 .collab .wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 40px; align-items: center; }
@@ -393,15 +383,6 @@ footer a { font-weight: 600; text-decoration: none; }
     </div>
   </section>
 
-  <section class="teaser">
-    <div class="wrap reveal">
-      <a class="card-link" href="/process/">
-        <span class="ico" aria-hidden="true">🎬</span>
-        <span><h3>how i film <span class="hl">16 videos</span> in one day</h3><p>my whole batch day, plus exactly how i edit with claude.</p></span>
-        <span class="go">see my process →</span>
-      </a>
-    </div>
-  </section>
 
   <section class="collab" id="collab">
     <div class="wrap">
