@@ -319,8 +319,15 @@ pre {
   .hero-row { gap: 12px; }
   .hero-row .frost { font-size: 13.5px; padding: 12px 13px; }
 }
-.home { align-self: flex-start; font-size: 13px; font-weight: 600; color: #4E6B34; text-decoration: none; background: rgba(255,255,255,0.7); padding: 6px 14px; border-radius: 999px; }
-.home:hover { background: #fff; }
+/* site nav (shared across portfolio · notion · how i edit) */
+.sitenav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.sitenav .logo { font-weight: 800; font-size: 17px; letter-spacing: -0.05em; color: #2E3A22; text-decoration: none; white-space: nowrap; }
+.sitenav .logo span { background: #FFF1A0; border-radius: 8px; padding: 0 6px 2px; }
+.sitenav .links { display: flex; gap: 2px; background: rgba(255,255,255,0.7); padding: 3px; border-radius: 999px; }
+.sitenav .links a { font-size: 12.5px; font-weight: 600; color: #4E6B34; text-decoration: none; padding: 6px 11px; border-radius: 999px; white-space: nowrap; transition: background .2s; }
+.sitenav .links a:hover { background: #fff; }
+.sitenav .links a[aria-current="page"] { background: #4E6B34; color: #fff; }
+@media (max-width: 370px) { .sitenav .logo { font-size: 15px; } .sitenav .links a { padding: 6px 8px; font-size: 12px; } }
 /* arrows + dots */
 .controls { display: flex; align-items: center; justify-content: center; gap: 14px; }
 .arrow {
@@ -374,7 +381,10 @@ pre {
 </head>
 <body>
 <div class="carousel">
-  <a class="home" href="/">← becatries.com · my portfolio</a>
+  <nav class="sitenav" aria-label="Site">
+    <a class="logo" href="/">beca <span>tries</span></a>
+    <div class="links"><a href="/">portfolio</a><a href="/notion/">notion</a><a href="/process/" aria-current="page">how i edit</a></div>
+  </nav>
   <nav class="tabs" aria-label="Chapters">
     <button type="button" class="tab" data-ch="0" aria-current="true">1 · how i film</button>
     <button type="button" class="tab" data-ch="1">2 · how i edit</button>
