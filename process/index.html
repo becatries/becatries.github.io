@@ -320,14 +320,27 @@ pre {
   .hero-row .frost { font-size: 13.5px; padding: 12px 13px; }
 }
 /* site nav (shared across portfolio · notion · how i edit) */
-.sitenav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.sitenav .logo { font-weight: 800; font-size: 17px; letter-spacing: -0.05em; color: #2E3A22; text-decoration: none; white-space: nowrap; }
+.sitenav { position: relative; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.sitenav .logo { font-weight: 800; font-size: 19px; letter-spacing: -0.05em; color: #2E3A22; text-decoration: none; white-space: nowrap; }
 .sitenav .logo span { background: #FFF1A0; border-radius: 8px; padding: 0 6px 2px; }
-.sitenav .links { display: flex; gap: 2px; background: rgba(255,255,255,0.7); padding: 3px; border-radius: 999px; }
-.sitenav .links a { font-size: 12.5px; font-weight: 600; color: #4E6B34; text-decoration: none; padding: 6px 11px; border-radius: 999px; white-space: nowrap; transition: background .2s; }
-.sitenav .links a:hover { background: #fff; }
-.sitenav .links a[aria-current="page"] { background: #4E6B34; color: #fff; }
-@media (max-width: 370px) { .sitenav .logo { font-size: 15px; } .sitenav .links a { padding: 6px 8px; font-size: 12px; } }
+.sitenav .right { display: flex; align-items: center; gap: 8px; }
+.sitenav .talk-btn { font-weight: 700; font-size: 14px; color: #fff; background: #4E6B34; text-decoration: none; border-radius: 999px; padding: 9px 18px; box-shadow: 0 6px 16px rgba(46,58,34,0.25); white-space: nowrap; transition: transform .2s cubic-bezier(.3,1.6,.5,1); }
+.sitenav .talk-btn:hover { transform: translateY(-2px); }
+.sitenav .menu { position: relative; }
+.sitenav .menu-btn { font: inherit; font-weight: 600; font-size: 14px; color: #2E3A22; background: rgba(255,255,255,0.7); border: 1px solid rgba(78,107,52,0.18); border-radius: 999px; padding: 8px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: background .2s; }
+.sitenav .menu-btn:hover, .sitenav .menu-btn[aria-expanded="true"] { background: #fff; }
+.sitenav .menu-btn svg { width: 12px; height: 12px; transition: transform .25s; }
+.sitenav .menu-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+.sitenav .menu-list { position: absolute; right: 0; top: calc(100% + 10px); min-width: 220px; background: #fff; border-radius: 18px; padding: 8px; box-shadow: 0 14px 34px rgba(70,60,30,0.2); display: flex; flex-direction: column; gap: 2px; }
+.sitenav .menu-list[hidden] { display: none; }
+.sitenav .menu-list a { text-decoration: none; color: #2E3A22; font-weight: 600; font-size: 15px; padding: 10px 14px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.sitenav .menu-list a:hover, .sitenav .menu-list a:focus-visible { background: #E3ECD3; outline: none; }
+.sitenav .menu-list a[aria-current="page"] { background: #E3ECD3; color: #4E6B34; }
+.sitenav .menu-list a { white-space: nowrap; }
+.sitenav .menu-list a[aria-current="page"]::after { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: #4E6B34; }
+@media (prefers-reduced-motion: no-preference) { .sitenav .menu-list:not([hidden]) { animation: menuIn .22s cubic-bezier(.3,1.4,.5,1); } }
+@keyframes menuIn { from { opacity: 0; transform: translateY(-6px) scale(.97); } to { opacity: 1; transform: none; } }
+@media (max-width: 370px) { .sitenav .logo { font-size: 17px; } .sitenav .right { gap: 6px; } .sitenav .menu-btn { padding: 8px 11px; font-size: 13px; } .sitenav .talk-btn { padding: 8px 13px; font-size: 13px; } }
 /* arrows + dots */
 .controls { display: flex; align-items: center; justify-content: center; gap: 14px; }
 .arrow {
@@ -383,7 +396,13 @@ pre {
 <div class="carousel">
   <nav class="sitenav" aria-label="Site">
     <a class="logo" href="/">beca <span>tries</span></a>
-    <div class="links"><a href="/">portfolio</a><a href="/notion/">notion</a><a href="/process/" aria-current="page">how i edit</a></div>
+    <div class="right">
+      <div class="menu">
+        <button class="menu-btn" id="siteMenuBtn" type="button" aria-expanded="false" aria-controls="siteMenuList">menu <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="menu-list" id="siteMenuList" hidden><a href="/">my portfolio</a><a href="/notion/">how i use notion</a><a href="/process/" aria-current="page">how i film &amp; edit</a></div>
+      </div>
+      <a class="talk-btn" href="/#collab">let's talk</a>
+    </div>
   </nav>
   <nav class="tabs" aria-label="Chapters">
     <button type="button" class="tab" data-ch="0" aria-current="true">1 · how i film</button>
@@ -853,5 +872,15 @@ Read the brief first. Carry exact brand names, required hooks and CTAs, and bann
 })();
 </script>
 
+<script>
+(function () {
+  var btn = document.getElementById('siteMenuBtn'), list = document.getElementById('siteMenuList');
+  if (!btn || !list) return;
+  function set(open) { btn.setAttribute('aria-expanded', open ? 'true' : 'false'); list.hidden = !open; }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); set(list.hidden); });
+  document.addEventListener('click', function (e) { if (!list.hidden && !e.target.closest('.sitenav .menu')) set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !list.hidden) { set(false); btn.focus(); } });
+})();
+</script>
 </body>
 </html>
