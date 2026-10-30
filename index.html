@@ -59,12 +59,22 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 62px; }
 .logo { font-weight: 800; font-size: 21px; letter-spacing: -0.05em; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
 .logo span { background: var(--butter); border-radius: 9px; padding: 0 7px 2px; }
-.links { display: flex; align-items: center; gap: 4px; }
-.links a { text-decoration: none; font-weight: 600; font-size: 14px; padding: 8px 12px; border-radius: 999px; transition: background .2s; }
-.links a:hover { background: var(--sage-pale); }
-.links .btn { padding: 9px 16px; font-size: 14px; }
-@media (max-width: 640px) { .links a.hide-sm { display: none; } }
-@media (max-width: 420px) { .logo { font-size: 18px; } .links { gap: 0; } .links a { padding: 8px 7px; font-size: 13px; white-space: nowrap; } .links .btn { padding: 8px 12px; font-size: 13px; margin-left: 4px; } }
+.links { display: flex; align-items: center; gap: 8px; }
+.links .btn { padding: 9px 18px; font-size: 14px; }
+.menu { position: relative; }
+.menu-btn { font: inherit; font-weight: 600; font-size: 14px; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: background .2s; }
+.menu-btn:hover, .menu-btn[aria-expanded="true"] { background: var(--sage-pale); }
+.menu-btn svg { width: 12px; height: 12px; transition: transform .25s; }
+.menu-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+.menu-list { position: absolute; right: 0; top: calc(100% + 10px); min-width: 220px; background: var(--white); border-radius: 18px; padding: 8px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 2px; z-index: 40; }
+.menu-list[hidden] { display: none; }
+.menu-list a { text-decoration: none; font-weight: 600; font-size: 15px; padding: 10px 14px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.menu-list a:hover, .menu-list a:focus-visible { background: var(--sage-pale); outline: none; }
+.menu-list a small { font-size: 12px; font-weight: 500; color: var(--soft); }
+.menu-list hr { border: 0; border-top: 1px solid var(--line); margin: 4px 8px; }
+@media (prefers-reduced-motion: no-preference) { .menu-list:not([hidden]) { animation: menuIn .22s cubic-bezier(.3,1.4,.5,1); } }
+@keyframes menuIn { from { opacity: 0; transform: translateY(-6px) scale(.97); } to { opacity: 1; transform: none; } }
+@media (max-width: 380px) { .logo { font-size: 18px; } .links { gap: 6px; } .menu-btn { padding: 8px 11px; font-size: 13px; } .links .btn { padding: 8px 13px; font-size: 13px; } }
 
 /* hero */
 .hero { padding-block: 48px 40px; }
@@ -263,10 +273,16 @@ footer .creators { display: flex; flex-direction: column; gap: 14px; padding-blo
   <div class="wrap">
     <a class="logo" href="#top">beca <span>tries</span></a>
     <div class="links">
-      <a href="#work" class="hide-sm">work</a>
-      <a href="#rates" class="hide-sm">rates</a>
-      <a href="/notion/">notion</a>
-      <a href="/process/">how i edit</a>
+      <div class="menu">
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menuList">menu <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="menu-list" id="menuList" hidden>
+          <a href="#work">my work</a>
+          <a href="#rates">rates</a>
+          <hr>
+          <a href="/notion/">how i use notion <small>→</small></a>
+          <a href="/process/">how i film &amp; edit <small>→</small></a>
+        </div>
+      </div>
       <a href="#collab" class="btn btn-dark talk">let's talk</a>
     </div>
   </div>
@@ -562,6 +578,15 @@ footer .creators { display: flex; flex-direction: column; gap: 14px; padding-blo
     sheetLast = from || null; sheet.hidden = false; document.getElementById('gmailBtn').focus();
   }
   function closeContact() { sheet.hidden = true; if (sheetLast) sheetLast.focus(); }
+  (function () {
+    var btn = document.getElementById('menuBtn'), list = document.getElementById('menuList');
+    if (!btn || !list) return;
+    function set(open) { btn.setAttribute('aria-expanded', open ? 'true' : 'false'); list.hidden = !open; }
+    btn.addEventListener('click', function (e) { e.stopPropagation(); set(list.hidden); });
+    list.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+    document.addEventListener('click', function (e) { if (!list.hidden && !e.target.closest('.menu')) set(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !list.hidden) { set(false); btn.focus(); } });
+  })();
   document.querySelectorAll('.talk').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); openContact('UGC collab', '', a); }); });
   document.getElementById('mailPkg').addEventListener('click', function (e) { e.preventDefault(); openContact(this.dataset.subject, this.dataset.body, this); });
   document.getElementById('sheetClose').addEventListener('click', closeContact);
