@@ -213,8 +213,17 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .sheet-btns .btn { justify-content: center; }
 @media (prefers-reduced-motion: no-preference) { .sheet:not([hidden]) .sheet-card { animation: pop .45s cubic-bezier(.28,1.6,.5,1); } }
 footer { border-top: 1px solid var(--line); padding-block: 22px calc(22px + env(safe-area-inset-bottom, 0px)); font-size: 13px; color: var(--soft); }
-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+footer .wrap.base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
 footer a { font-weight: 600; text-decoration: none; }
+footer .creators { display: flex; flex-direction: column; gap: 14px; padding-block: 8px 26px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.cr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 640px) { .cr-grid { grid-template-columns: 1fr; } }
+.cr { position: relative; display: flex; flex-direction: column; gap: 4px; background: var(--white); color: var(--ink); border-radius: 20px; padding: 18px 52px 18px 20px; box-shadow: 0 8px 22px rgba(70,60,30,0.10); transition: transform .2s cubic-bezier(.3,1.6,.5,1), box-shadow .2s; }
+.cr:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.cr b { font-size: 19px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.25; }
+.cr > span { font-size: 14px; font-weight: 500; color: var(--soft); line-height: 1.4; }
+.cr i { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-style: normal; font-weight: 700; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--sage-pale); color: var(--sage-deep); transition: background .2s, color .2s; }
+.cr:hover i { background: var(--sage-deep); color: #fff; }
 
 .toast { position: fixed; left: 50%; bottom: calc(22px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--sage-deep); color: #fff; padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 14px; z-index: 80; }
 
@@ -313,7 +322,7 @@ footer a { font-weight: 600; text-decoration: none; }
     <div class="wrap">
       <div class="sec-head reveal">
         <span class="eyebrow">my work</span>
-        <h2>stuff i <span class="hl">made</span></h2>
+        <h2>content that <span class="hl">converts</span></h2>
         <div class="niches"><span>fitness</span><span>skincare</span><span>lifestyle</span><span>tech</span></div>
       </div>
       <div class="filters reveal" role="group" aria-label="Filter my work">
@@ -329,7 +338,7 @@ footer a { font-weight: 600; text-decoration: none; }
           <div class="card reveal"><button class="media" type="button" data-v="geekom" aria-label="Play Geekom video"><video muted loop playsinline preload="none" poster="work/geekom.jpg" data-src="work/geekom.mp4"></video><span class="play"></span></button><div class="label"><b>geekom</b><span>ft. geekom a5 mini pc</span></div></div>
           <div class="card reveal"><button class="media" type="button" data-v="xtra" aria-label="Play Xtra Direct video"><video muted loop playsinline preload="none" poster="work/xtra.jpg" data-src="work/xtra.mp4"></video><span class="play"></span></button><div class="label"><b>xtra direct</b><span>ft. xtra muse vlogging camera</span></div></div>
           <div class="card reveal"><button class="media" type="button" data-v="vhi-tobi" aria-label="Play Village Hidden in Iron video"><video muted loop playsinline preload="none" poster="work/vhi-tobi.jpg" data-src="work/vhi-tobi.mp4"></video><span class="play"></span></button><div class="label"><b>village hidden in iron</b><span>ft. tobi sweatpants</span></div></div>
-          <div class="card reveal"><button class="media" type="button" data-v="emeet" aria-label="Play EMEET video"><video muted loop playsinline preload="none" poster="work/emeet.jpg" data-src="work/emeet.mp4"></video><span class="play"></span></button><div class="label"><b>emeet</b><span>ft. c60e webcam</span></div></div>
+          <div class="card reveal"><button class="media" type="button" data-v="couch" aria-label="Play boneless couch video"><video muted loop playsinline preload="none" poster="work/couch.jpg" data-src="work/couch.mp4"></video><span class="play"></span></button><div class="label"><b>boneless couch</b><span>unbox + setup</span></div></div>
         </div>
       </div>
 
@@ -414,7 +423,14 @@ footer a { font-weight: 600; text-decoration: none; }
 </main>
 
 <footer>
-  <div class="wrap"><span>© 2026 beca tries</span><span><a href="/notion/">how i use notion</a> · <a href="/process/">how i edit</a> · <a href="#top">back to top ↑</a></span></div>
+  <div class="wrap creators">
+    <span class="eyebrow">for fellow creators</span>
+    <div class="cr-grid">
+      <a class="cr" href="/notion/"><b>how i use <span class="hl">notion</span></b><span>my video pipeline + a free template to copy</span><i aria-hidden="true">→</i></a>
+      <a class="cr" href="/process/"><b>how i film &amp; <span class="hl">edit</span></b><span>16 videos in a day, start to finish</span><i aria-hidden="true">→</i></a>
+    </div>
+  </div>
+  <div class="wrap base"><span>© 2026 beca tries</span><a href="#top">back to top ↑</a></div>
 </footer>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Viewer" hidden>
