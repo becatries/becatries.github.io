@@ -172,6 +172,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .proof .num { flex: none; font-weight: 800; font-size: 44px; letter-spacing: -0.05em; line-height: 1; color: var(--ink); }
 .proof p { margin: 0; font-size: 15px; color: #3E4A33; }
 .proof p b { color: var(--ink); }
+.proof .gmv { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin-top: 10px; font-size: 13.5px; font-weight: 600; color: var(--soft); }
+.proof .gmv b { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: var(--sage-deep); background: #fff; border-radius: 999px; padding: 1px 12px; }
 @media (max-width: 520px) { .proof { flex-direction: column; align-items: flex-start; gap: 8px; } }
 /* rates */
 .rates { padding-block: 72px; background: linear-gradient(180deg, var(--page), var(--sage-pale) 30%, var(--sage-pale)); }
@@ -400,7 +402,7 @@ footer .creators { display: flex; flex-direction: column; gap: 14px; padding-blo
       </div>
       <div class="proof reveal">
         <span class="num">#45</span>
-        <p><b>Ranked in Trybe's Top 100 creators.</b> The leaderboard is driven by how creators' videos perform as Meta ads for brands, so that spot comes from real ad results, not just how my videos look.</p>
+        <p><b>Ranked in Trybe's Top 100 creators.</b> The leaderboard is driven by how creators' videos perform as Meta ads for brands, so that spot comes from real ad results, not just how my videos look.<span class="gmv"><b>$50K+</b> creator GMV (30 days) · sales my videos drove</span></p>
       </div>
       <div class="pkgs" role="group" aria-label="Packages">
         <button type="button" class="pkg reveal" data-name="Single video" data-price="400" data-n="1" aria-pressed="false">
