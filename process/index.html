@@ -92,6 +92,7 @@ h2 { font-size: clamp(32px, 8.5vw, 46px); }
 }
 .frost p { margin: 0; }
 .frost p + p { margin-top: 10px; }
+.inlink { color: var(--green); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--hl); }
 .lower { text-transform: lowercase; }
 .cta-tag { align-self: flex-start; background: var(--butter); color: #4A3E2A; box-shadow: 0 6px 16px rgba(80,60,20,0.2); font-weight: 600; font-size: 14px; padding: 7px 16px; border-radius: 999px; flex: none; }
 .spacer { flex: 1 1 0; min-height: 0; }
@@ -389,6 +390,11 @@ pre {
 @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @keyframes deal { from { opacity: 0; transform: translateY(60px) rotate(calc(var(--tilt) * -4)) scale(.92); } to { opacity: 1; transform: rotate(var(--tilt)); } }
 @keyframes drift { from { transform: scale(1.1) translate(2%, -2%); } to { transform: none; } }
+
+/* highlighted headings: room between lines so highlight boxes never overlap */
+h1:has(.hl), h2:has(.hl) { line-height: 1.16; }
+h1 .hl, h2 .hl { padding: 0 9px 2px; border-radius: 12px; white-space: nowrap; }
+h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
 </style>
 
 </head>
@@ -615,7 +621,7 @@ Never use: <span class="ph">[e.g. flash transitions, dark moody grades, zooms]</
 
 Before you send it, check still frames of the hook, every B-roll insert and the ending. Then tell me what you added and why, so I can give you notes.</pre>
         </div>
-        <div class="frost lower"><p>attach your cut and a reference or two, then fill in the blue parts.</p></div>
+        <div class="frost lower"><p>attach your cut and a reference or two, then fill in the blue parts.</p><p>just want one card? <a class="inlink" href="/prompt/">copy my whole prompt →</a></p></div>
       </section>
 
       <section class="slide g-slate" aria-label="8 of 10">
