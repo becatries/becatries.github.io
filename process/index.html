@@ -395,6 +395,11 @@ pre {
 h1:has(.hl), h2:has(.hl) { line-height: 1.16; }
 h1 .hl, h2 .hl { padding: 0 9px 2px; border-radius: 12px; white-space: nowrap; }
 h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
+
+.tools { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex: none; }
+.tools li { background: var(--frost); color: var(--frost-ink); border-radius: 14px; padding: 9px 12px; box-shadow: 0 6px 16px rgba(60,45,20,0.12); min-width: 0; }
+.tools b { display: block; font-size: 14px; font-weight: 700; letter-spacing: -0.02em; color: #1F4E63; }
+.tools span { display: block; font-size: 12px; line-height: 1.35; color: #6E6656; text-transform: lowercase; }
 </style>
 
 </head>
@@ -486,9 +491,9 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
       </section>
 
 
-      <section class="slide g-moss" aria-label="claude kit, 1 of 10">
+      <section class="slide g-moss" aria-label="claude kit, 1 of 12">
         <span class="stk spark" style="top:86px;right:26px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span><span class="stk spark sm" style="top:150px;right:70px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span><span class="stk heart" style="top:300px;right:30px" aria-hidden="true"><svg viewBox="-60 -55 120 110"><path d="M0,45 C-55,10 -60,-25 -38,-42 C-20,-55 -4,-44 0,-30 C4,-44 20,-55 38,-42 C60,-25 55,10 0,45 Z" fill="#B9834F"/><ellipse cx="-28" cy="-30" rx="12" ry="7" fill="rgba(255,255,255,0.5)" transform="rotate(-30 -28 -30)"/><circle cx="-9" cy="-7" r="5" fill="#7A5330"/><circle cx="9" cy="-7" r="5" fill="#7A5330"/><circle cx="-9" cy="9" r="5" fill="#7A5330"/><circle cx="9" cy="9" r="5" fill="#7A5330"/></svg></span>
-        <div class="top"><span class="pill">part 2 · my claude edit kit</span><span class="count">1/10</span></div>
+        <div class="top"><span class="pill">part 2 · my claude edit kit</span><span class="count">1/12</span></div>
         <h1>there's no<br><span class="big hl">magic prompt</span><br>you teach it your taste</h1>
         <div class="socials">
           <a class="soc" href="https://www.instagram.com/beca_tries/" target="_blank" rel="noopener"><span class="soc-k">ig</span><span class="soc-h">@beca_tries</span></a>
@@ -504,9 +509,9 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
         </div>
       </section>
 
-      <section class="slide g-caramel" aria-label="2 of 10">
+      <section class="slide g-caramel" aria-label="2 of 12">
         <span class="stk spark" style="top:70px;right:30px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span><span class="stk heart" style="top:190px;right:36px" aria-hidden="true"><svg viewBox="-60 -55 120 110"><path d="M0,45 C-55,10 -60,-25 -38,-42 C-20,-55 -4,-44 0,-30 C4,-44 20,-55 38,-42 C60,-25 55,10 0,45 Z" fill="#8FB277"/><ellipse cx="-28" cy="-30" rx="12" ry="7" fill="rgba(255,255,255,0.5)" transform="rotate(-30 -28 -30)"/><circle cx="-9" cy="-7" r="5" fill="#4E6B34"/><circle cx="9" cy="-7" r="5" fill="#4E6B34"/><circle cx="-9" cy="9" r="5" fill="#4E6B34"/><circle cx="9" cy="9" r="5" fill="#4E6B34"/></svg></span>
-        <div class="top"><span class="pill">step 1</span><span class="count">2/10</span></div>
+        <div class="top"><span class="pill">step 1</span><span class="count">2/12</span></div>
         <h2>show it <span class="hl">what you like</span></h2>
         <div class="refs" id="refs" role="button" tabindex="0" aria-label="Flip through my reference videos">
           <figure class="ref" data-i="0"><img src="data:image/jpeg;base64,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" alt="My video cover with the caption 'why does nobody'"><figcaption>what i like: the <b>big emphasis word</b></figcaption></figure>
@@ -519,9 +524,9 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
         </div>
       </section>
 
-      <section class="slide g-slate" aria-label="3 of 10">
+      <section class="slide g-slate" aria-label="3 of 12">
         <span class="stk spark" style="top:120px;right:34px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span><span class="stk spark sm" style="top:170px;right:80px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span>
-        <div class="top"><span class="pill">step 2</span><span class="count">3/10</span></div>
+        <div class="top"><span class="pill">step 2</span><span class="count">3/12</span></div>
         <h2>write down the <span class="hl">specifics</span></h2>
         <div class="spacer"></div>
         <div class="frost lower"><p>claude won't guess your style. tap each thing once you've written it down for yours.</p></div>
@@ -537,9 +542,9 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
         <div class="spacer"></div>
       </section>
 
-      <section class="slide g-espresso" aria-label="4 of 10">
+      <section class="slide g-espresso" aria-label="4 of 12">
         <span class="stk heart" style="top:150px;right:40px" aria-hidden="true"><svg viewBox="-60 -55 120 110"><path d="M0,45 C-55,10 -60,-25 -38,-42 C-20,-55 -4,-44 0,-30 C4,-44 20,-55 38,-42 C60,-25 55,10 0,45 Z" fill="#B9834F"/><ellipse cx="-28" cy="-30" rx="12" ry="7" fill="rgba(255,255,255,0.5)" transform="rotate(-30 -28 -30)"/><circle cx="-9" cy="-7" r="5" fill="#7A5330"/><circle cx="9" cy="-7" r="5" fill="#7A5330"/><circle cx="-9" cy="9" r="5" fill="#7A5330"/><circle cx="9" cy="9" r="5" fill="#7A5330"/></svg></span>
-        <div class="top"><span class="pill">step 3</span><span class="count">4/10</span></div>
+        <div class="top"><span class="pill">step 3</span><span class="count">4/12</span></div>
         <h2>say what you <span class="hl">hate</span></h2>
         <div class="spacer"></div>
         <div class="bans lower">
@@ -555,8 +560,8 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
         <div class="spacer"></div>
       </section>
 
-      <section class="slide g-olive" aria-label="5 of 10">
-        <div class="top"><span class="pill">step 4</span><span class="count">5/10</span></div>
+      <section class="slide g-olive" aria-label="5 of 12">
+        <div class="top"><span class="pill">step 4</span><span class="count">5/12</span></div>
         <h2>give <span class="hl">real notes</span> on every draft</h2>
         <div class="flipwrap">
           <div class="flips">
@@ -573,9 +578,9 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
         <span class="tap-hint">tap a note to see the rule it became</span>
       </section>
 
-      <section class="slide g-moss" aria-label="6 of 10">
+      <section class="slide g-moss" aria-label="6 of 12">
         <span class="stk spark" style="top:130px;right:40px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span>
-        <div class="top"><span class="pill">step 5</span><span class="count">6/10</span></div>
+        <div class="top"><span class="pill">step 5</span><span class="count">6/12</span></div>
         <h2>save it as a <span class="hl">skill</span></h2>
         <div class="styles">
           <button type="button" class="style-card sc-default" aria-label="Replay the default edit example">
@@ -599,8 +604,8 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
         </div>
       </section>
 
-      <section class="slide g-caramel" aria-label="7 of 10">
-        <div class="top"><span class="pill">prompt</span><span class="count">7/10</span></div>
+      <section class="slide g-caramel" aria-label="7 of 12">
+        <div class="top"><span class="pill">prompt</span><span class="count">7/12</span></div>
         <h2>your <span class="hl">first message</span></h2>
         <div class="float tilt-r">
           <div class="float-head"><span>first edit</span><button class="copy" data-target="p-first" type="button">copy</button></div>
@@ -608,7 +613,7 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
 
 I attached:
 - My finished cut: <span class="ph">[file]</span>
-- Reference videos I want you to copy the look of: <span class="ph">[files or links]</span>. What I like about them: <span class="ph">[e.g. the pop-in text, the caption color, the swipe sounds on cuts]</span>
+- Videos I want you to reference: <span class="ph">[files or links]</span>. What I like about them: <span class="ph">[e.g. the pop-in text, the caption color, the swipe sounds on cuts]</span>
 
 My style:
 - Captions: <span class="ph">[one word at a time / full lines]</span>, <span class="ph">[font]</span>, <span class="ph">[color]</span>, in the lower third where the app buttons don't cover them
@@ -621,12 +626,12 @@ Never use: <span class="ph">[e.g. flash transitions, dark moody grades, zooms]</
 
 Before you send it, check still frames of the hook, every B-roll insert and the ending. Then tell me what you added and why, so I can give you notes.</pre>
         </div>
-        <div class="frost lower"><p>attach your cut and a reference or two, then fill in the blue parts.</p><p>just want one card? <a class="inlink" href="/prompt/">copy my whole prompt →</a></p></div>
+        <div class="frost lower"><p>this is the quick version. attach your cut and a reference or two, then fill in the blue parts.</p><p>the full one, with the tools and check-ins: <a class="inlink" href="/prompt/">copy my whole prompt →</a></p></div>
       </section>
 
-      <section class="slide g-slate" aria-label="8 of 10">
+      <section class="slide g-slate" aria-label="8 of 12">
         <span class="stk spark sm" style="top:64px;right:22px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span>
-        <div class="top"><span class="pill">prompt</span><span class="count">8/10</span></div>
+        <div class="top"><span class="pill">prompt</span><span class="count">8/12</span></div>
         <h2>notes that <span class="hl">stick</span></h2>
         <div class="spacer"></div>
         <div class="quick">
@@ -638,8 +643,31 @@ Before you send it, check still frames of the hook, every B-roll insert and the 
         <div class="spacer"></div>
       </section>
 
-      <section class="slide g-espresso" aria-label="9 of 10">
-        <div class="top"><span class="pill">template</span><span class="count">9/10</span></div>
+      <section class="slide g-espresso" aria-label="9 of 12">
+        <span class="stk spark sm" style="top:64px;right:22px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span>
+        <div class="top"><span class="pill">prompt</span><span class="count">9/12</span></div>
+        <h2>make it <span class="hl">check in</span></h2>
+        <div class="frost lower"><p>these make claude stop and ask instead of guessing.</p></div>
+        <div class="spacer"></div>
+        <div class="quick">
+          <button type="button" data-copy="Before you edit, read the brief and tell me the brand rules you'll follow.">read the brief first and tell me the rules…<small>tap to copy · brand deals</small></button>
+          <button type="button" data-copy="If my style clashes with the brief, ask me one multiple-choice question before you render.">if my style clashes with the brief, ask me…<small>tap to copy · before rendering</small></button>
+          <button type="button" data-copy="If I said something that breaks the brief, flag it. Don't quietly change my captions.">flag it, don't quietly fix it…<small>tap to copy · when i break a rule</small></button>
+          <button type="button" data-copy="Tell me what you added, what you skipped and why. Then wait for my notes.">tell me what you did, then wait…<small>tap to copy · with every draft</small></button>
+        </div>
+        <div class="spacer"></div>
+      </section>
+
+      <section class="slide g-slate" aria-label="10 of 12">
+        <span class="stk spark sm" style="top:62px;right:22px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span>
+        <div class="top"><span class="pill">under the hood</span><span class="count">10/12</span></div>
+        <h2>the <span class="hl">tools</span> it uses</h2>
+        <ul class="tools"><li><b>FFmpeg</b><span>the main editor and final render</span></li><li><b>faster-whisper</b><span>word timing so captions land on time</span></li><li><b>Remotion</b><span>pop-in text and stickers</span></li><li><b>HyperFrames</b><span>text behind my head</span></li><li><b>ghost-editor</b><span>keeps text off my face</span></li><li><b>librosa</b><span>cuts on the beat</span></li><li><b>Fontsource</b><span>free caption fonts</span></li><li><b>Pixabay Music</b><span>royalty-free music</span></li></ul>
+        <div class="frost lower"><p>claude installs these itself. optional: a free gemini key so it can break down references.</p></div>
+      </section>
+
+      <section class="slide g-caramel" aria-label="11 of 12">
+        <div class="top"><span class="pill">template</span><span class="count">11/12</span></div>
         <h2>a <span class="hl">starter skill</span> to copy</h2>
         <div class="float tilt-l">
           <div class="float-head"><span>SKILL.md</span><button class="copy" data-target="p-skill" type="button">copy</button></div>
@@ -699,15 +727,16 @@ Read the brief first. Carry exact brand names, required hooks and CTAs, and bann
         <div class="frost lower"><p>my skill with my personal details stripped out. paste it to claude and fill the blanks together.</p></div>
       </section>
 
-      <section class="slide g-olive" aria-label="10 of 10">
+      <section class="slide g-olive" aria-label="12 of 12">
         <span class="stk spark sm" style="top:62px;right:24px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span><span class="stk heart" style="top:auto;right:30px;bottom:80px" aria-hidden="true"><svg viewBox="-60 -55 120 110"><path d="M0,45 C-55,10 -60,-25 -38,-42 C-20,-55 -4,-44 0,-30 C4,-44 20,-55 38,-42 C60,-25 55,10 0,45 Z" fill="#B9834F"/><ellipse cx="-28" cy="-30" rx="12" ry="7" fill="rgba(255,255,255,0.5)" transform="rotate(-30 -28 -30)"/><circle cx="-9" cy="-7" r="5" fill="#7A5330"/><circle cx="9" cy="-7" r="5" fill="#7A5330"/><circle cx="-9" cy="9" r="5" fill="#7A5330"/><circle cx="9" cy="9" r="5" fill="#7A5330"/></svg></span>
-        <div class="top"><span class="pill">good to know</span><span class="count">10/10</span></div>
+        <div class="top"><span class="pill">good to know</span><span class="count">12/12</span></div>
         <h2>what <span class="hl">helped most</span></h2>
         <div class="spacer"></div>
         <ul class="tips lower">
-          <li><strong>give it the real files.</strong> a description or screenshot isn't enough to edit from.</li>
+          <li><strong>give it the real files.</strong> a screenshot isn't enough.</li>
           <li><strong>do your cuts first.</strong> i cut in another app and let claude handle captions, text, sound and music.</li>
-          <li><strong>expect a few rounds.</strong> by the fourth or fifth video it mostly had my style, because every note got saved.</li>
+          <li><strong>expect a few rounds.</strong> by video four or five it had my style.</li>
+          <li><strong>leave notes, then say "check my notes."</strong> it fixes them all at once.</li>
           <li><strong>check the brief yourself too.</strong> you're the one sending it to the brand.</li>
         </ul>
         <div class="spacer"></div>
@@ -734,7 +763,7 @@ Read the brief first. Carry exact brand names, required hooks and CTAs, and bann
   var dotsWrap = document.getElementById('dots');
   var i = 0;
 
-  var CH = [{ start: 0, len: 8, hash: 'film' }, { start: 8, len: 10, hash: 'claude-kit' }];
+  var CH = [{ start: 0, len: 8, hash: 'film' }, { start: 8, len: 12, hash: 'claude-kit' }];
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
   var dots = [], curCh = -1;
   function chOf(n) { return n >= CH[1].start ? 1 : 0; }
