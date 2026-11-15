@@ -78,7 +78,7 @@ body {
 .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .pill { background: rgba(255,255,255,0.88); color: var(--sage-ink); box-shadow: 0 4px 12px rgba(60,50,20,0.15); font-weight: 600; font-size: 13px; padding: 5px 14px; border-radius: 999px; letter-spacing: -0.01em; }
 h1 {
-  margin: 0; color: var(--head); font-weight: 800; text-transform: lowercase; text-wrap: balance;
+  margin: 0; color: var(--head); font-weight: 800; text-wrap: balance;
   letter-spacing: -0.045em; line-height: 0.98; text-shadow: var(--head-shadow);
   font-size: clamp(40px, 10.5vw, 58px); padding-right: 40px;
 }
@@ -86,7 +86,7 @@ h1 .hl { display: inline-block; margin-top: 10px; line-height: 1.02; padding: 2p
 .hl { background: var(--hl); border-radius: 14px; padding: 0 10px 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; text-shadow: none; box-shadow: 0 6px 16px rgba(60,45,20,0.14); }
 .frost {
   background: var(--frost); color: var(--frost-ink); border-radius: 18px; padding: 14px 17px;
-  font-size: 15px; line-height: 1.5; text-transform: lowercase;
+  font-size: 15px; line-height: 1.5;
   box-shadow: 0 10px 26px rgba(70, 55, 30, 0.16);
 }
 .frost p { margin: 0; }
@@ -96,7 +96,7 @@ h1 .hl { display: inline-block; margin-top: 10px; line-height: 1.02; padding: 2p
 .blue { color: var(--ph); font-weight: 600; }
 
 .before { display: flex; flex-wrap: wrap; gap: 8px; }
-.before span { background: rgba(255,255,255,0.72); color: var(--sage-ink); font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; text-transform: lowercase; }
+.before span { background: rgba(255,255,255,0.72); color: var(--sage-ink); font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; }
 .before span b { color: var(--green); font-weight: 800; margin-right: 4px; }
 .lbl { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(46,58,34,0.75); margin: 0 0 -8px 2px; }
 
@@ -106,7 +106,7 @@ h1 .hl { display: inline-block; margin-top: 10px; line-height: 1.02; padding: 2p
   box-shadow: 0 18px 40px rgba(70, 55, 30, 0.28); overflow: hidden; transform: rotate(-0.6deg);
 }
 .card-head { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 11px 12px 10px 18px; border-bottom: 1px solid #EBE7DC; background: #fff; }
-.card-head span { font-weight: 700; font-size: 15px; letter-spacing: -0.02em; text-transform: lowercase; }
+.card-head span { font-weight: 700; font-size: 15px; letter-spacing: -0.02em; }
 .copy { font-family: var(--font); font-weight: 700; font-size: 14px; cursor: pointer; background: var(--butter); color: #4A3E2A; border: 0; border-radius: 999px; padding: 8px 18px; box-shadow: 0 4px 12px rgba(80,60,20,0.18); transition: transform .2s cubic-bezier(.3,1.6,.5,1), background .2s; }
 .copy:hover { transform: translateY(-1px); }
 .copy.done { background: var(--sage); color: var(--sage-ink); }
@@ -120,7 +120,7 @@ pre {
 .copy-big { align-self: stretch; font-size: 16px; padding: 13px 18px; text-align: center; }
 
 .foot { display: flex; flex-direction: column; gap: 9px; }
-.foot a { text-decoration: none; text-transform: lowercase; background: var(--frost); color: var(--frost-ink); border-radius: 16px; padding: 12px 16px; font-size: 14.5px; font-weight: 600; box-shadow: 0 8px 22px rgba(15, 12, 8, 0.14); display: flex; justify-content: space-between; gap: 10px; }
+.foot a { text-decoration: none; background: var(--frost); color: var(--frost-ink); border-radius: 16px; padding: 12px 16px; font-size: 14.5px; font-weight: 600; box-shadow: 0 8px 22px rgba(15, 12, 8, 0.14); display: flex; justify-content: space-between; gap: 10px; }
 .foot a:hover { background: #fff; }
 .foot small { display: block; font-weight: 500; font-size: 12.5px; color: #6E6656; }
 
@@ -142,13 +142,13 @@ pre {
 <body>
 <div class="wrap">
   <nav class="sitenav" aria-label="Site">
-    <a class="logo" href="/">beca <span>tries</span></a>
+    <a class="logo" href="/">Beca <span>Tries</span></a>
     <div class="right">
       <div class="menu">
-        <button class="menu-btn" id="siteMenuBtn" type="button" aria-expanded="false" aria-controls="siteMenuList">menu <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="menu-list" id="siteMenuList" hidden><a href="/">my portfolio</a><a href="/notion/">how i use notion</a><a href="/process/">how i film &amp; edit</a><a href="/prompt/" aria-current="page">my claude prompt</a></div>
+        <button class="menu-btn" id="siteMenuBtn" type="button" aria-expanded="false" aria-controls="siteMenuList">Menu <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="menu-list" id="siteMenuList" hidden><a href="/">My portfolio</a><a href="/studio/">Beca Tries Studio</a><a href="/notion/">How I use Notion</a><a href="/process/">How I film &amp; edit</a><a href="/prompt/" aria-current="page">My Claude prompt</a></div>
       </div>
-      <a class="talk-btn" href="/#collab">let's talk</a>
+      <a class="talk-btn" href="/#collab">Let's talk</a>
     </div>
   </nav>
 
@@ -156,19 +156,19 @@ pre {
     <span class="stk spark" style="top:70px;right:20px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span>
     <span class="stk spark sm" style="top:128px;right:58px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#FFF3A0" stroke="#E2DCC8" stroke-width="2"/></svg></span>
 
-    <div class="top"><span class="pill">copy · paste · edit</span></div>
-    <h1>my whole process in <span class="hl">one prompt</span></h1>
-    <div class="frost"><p>paste this into claude, fill in the <span class="blue">blue parts</span> and attach your video. it sets claude up as your editor and makes it check in with you before it guesses.</p><p class="kitlink">the short version of my <a href="/process/#claude-kit">claude edit kit →</a></p></div>
+    <div class="top"><span class="pill">Copy · paste · edit</span></div>
+    <h1>My whole process in <span class="hl">one prompt</span></h1>
+    <div class="frost"><p>Paste this into Claude, fill in the <span class="blue">Blue parts</span> And attach your video. It sets Claude up as your editor and makes it check in with you before it guesses.</p><p class="kitlink">The short version of my <a href="/process/#claude-kit">Claude edit kit →</a></p></div>
 
-    <p class="lbl">before you paste</p>
+    <p class="lbl">Before you paste</p>
     <div class="before" role="list">
-      <span role="listitem"><b>1</b>film a roll + b roll in one go</span>
+      <span role="listitem"><b>1</b>Film A-roll + B-roll in one go</span>
       <span role="listitem"><b>2</b>cut the ums yourself first</span>
       <span role="listitem"><b>3</b>grab 1–3 videos you love</span>
     </div>
 
     <div class="card">
-      <div class="card-head"><span>start here · claude prompt</span><button class="copy" type="button" data-copy>copy</button></div>
+      <div class="card-head"><span>Start here · Claude prompt</span><button class="copy" type="button" data-copy>Copy</button></div>
 <pre id="prompt"><span class="sec">Be my video editor for TikTok and Instagram (9:16 videos). Let's set this up together, then edit my first video.</span>
 
 <span class="sec">ABOUT ME</span>
@@ -214,12 +214,12 @@ Install these in your workspace if they're missing:
 When I give a note I want kept, save it as a rule. Once a draft feels right, save everything as a skill called "<span class="ph">[my style name]</span>" so next time I can just say "edit this in <span class="ph">[my style name]</span>."</pre>
     </div>
 
-    <button class="copy copy-big" type="button" data-copy>copy the whole prompt</button>
+    <button class="copy copy-big" type="button" data-copy>Copy the whole prompt</button>
   </main>
 
   <div class="foot">
-    <a href="/process/#claude-kit"><span>want the why behind it?<small>my full claude edit kit: references, bans, notes, a starter skill</small></span><span aria-hidden="true">→</span></a>
-    <a href="https://www.instagram.com/beca_tries/" target="_blank" rel="noopener"><span>follow @beca_tries<small>more edits, more prompts</small></span><span aria-hidden="true">→</span></a>
+    <a href="/process/#claude-kit"><span>Want the why behind it?<small>My full Claude edit kit: references, bans, notes, a starter skill</small></span><span aria-hidden="true">→</span></a>
+    <a href="https://www.instagram.com/beca_tries/" target="_blank" rel="noopener"><span>Follow @beca_tries<small>More edits, more prompts</small></span><span aria-hidden="true">→</span></a>
   </div>
 </div>
 
@@ -242,7 +242,7 @@ When I give a note I want kept, save it as a rule. Once a draft feels right, sav
   document.querySelectorAll('[data-copy]').forEach(function (b) {
     var label = b.textContent;
     b.addEventListener('click', function () {
-      var done = function () { b.textContent = 'copied ✓'; b.classList.add('done'); setTimeout(function () { b.textContent = label; b.classList.remove('done'); }, 1800); };
+      var done = function () { b.textContent = 'Copied ✓'; b.classList.add('done'); setTimeout(function () { b.textContent = label; b.classList.remove('done'); }, 1800); };
       if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, function () { fallback(); done(); }); }
       else { fallback(); done(); }
     });

@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beca Tries Studio · UGC management for creators</title>
+<meta name="description" content="You film. I do everything else. Trybe + TikTok Shop setup, brand outreach, scripts, editing and submissions for a small roster of UGC creators. By @beca_tries.">
+<meta property="og:title" content="Beca Tries Studio">
+<meta property="og:description" content="You film. I do everything else. Trybe + TikTok Shop, managed for you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+/* Beca Tries Studio: same Butter Pop system as the rest of becatries.com (sage, latte, sky, butter grounds; bouncy lowercase headlines; sparkle + heart stickers), as one scrolling page. */
+:root {
+  color-scheme: light;
+  --page: #EEF2E2; --butter: #F4EC9C; --hl: #FFF3A0; --sage: #CBD7B4;
+  --ink: #2A241B; --muted: #6E6656; --green: #4E6B34; --head: #35501F;
+  --frost: rgba(255,255,255,0.9);
+  --head-shadow: 0 3px 0 rgba(255,255,255,0.6), 0 10px 22px rgba(60,45,20,0.16);
+  --font: "Poppins", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--page); color: var(--ink);
+  font-family: var(--font); font-size: 16px; line-height: 1.55;
+  padding: env(safe-area-inset-top,0px) max(16px, env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(16px, env(safe-area-inset-left,0px));
+}
+.wrap { max-width: 560px; margin: 0 auto; padding: 18px 0 40px; display: flex; flex-direction: column; gap: 18px; }
+
+/* site nav (shared) */
+.sitenav { position: relative; z-index: 40; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.sitenav .logo { font-weight: 800; font-size: 19px; letter-spacing: -0.05em; color: #2E3A22; text-decoration: none; white-space: nowrap; }
+.sitenav .logo span { background: #FFF1A0; border-radius: 8px; padding: 0 6px 2px; }
+.sitenav .right { display: flex; align-items: center; gap: 8px; }
+.sitenav .talk-btn { font-weight: 700; font-size: 14px; color: #fff; background: var(--green); text-decoration: none; border-radius: 999px; padding: 9px 18px; box-shadow: 0 6px 16px rgba(46,58,34,0.25); white-space: nowrap; transition: transform .2s cubic-bezier(.3,1.6,.5,1); }
+.sitenav .talk-btn:hover { transform: translateY(-2px); }
+.sitenav .menu { position: relative; }
+.sitenav .menu-btn { font: inherit; font-weight: 600; font-size: 14px; color: #2E3A22; background: rgba(255,255,255,0.7); border: 1px solid rgba(78,107,52,0.18); border-radius: 999px; padding: 8px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.sitenav .menu-btn:hover, .sitenav .menu-btn[aria-expanded="true"] { background: #fff; }
+.sitenav .menu-btn svg { width: 12px; height: 12px; transition: transform .25s; }
+.sitenav .menu-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+.sitenav .menu-list { position: absolute; right: 0; top: calc(100% + 10px); min-width: 220px; background: #fff; border-radius: 18px; padding: 8px; box-shadow: 0 14px 34px rgba(70,60,30,0.2); display: flex; flex-direction: column; gap: 2px; }
+.sitenav .menu-list[hidden] { display: none; }
+.sitenav .menu-list a { text-decoration: none; color: #2E3A22; font-weight: 600; font-size: 15px; padding: 10px 14px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; white-space: nowrap; }
+.sitenav .menu-list a:hover, .sitenav .menu-list a:focus-visible { background: #E3ECD3; outline: none; }
+.sitenav .menu-list a[aria-current="page"] { background: #E3ECD3; color: var(--green); }
+.sitenav .menu-list a[aria-current="page"]::after { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+@media (max-width: 370px) { .sitenav .logo { font-size: 17px; } .sitenav .menu-btn { padding: 8px 11px; font-size: 13px; } .sitenav .talk-btn { padding: 8px 13px; font-size: 13px; } }
+
+/* cards */
+.card {
+  position: relative; overflow: hidden; isolation: isolate; border-radius: 28px;
+  padding: 26px 22px 24px; display: flex; flex-direction: column; gap: 14px;
+  box-shadow: 0 20px 44px rgba(80,90,50,0.22);
+}
+.card::before { content: ""; position: absolute; inset: 0; z-index: -2; background: var(--ground); }
+.card::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0.08; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.g-moss    { --ground: radial-gradient(70% 45% at 85% 12%, rgba(255,247,190,.9) 0%, transparent 70%), radial-gradient(120% 90% at 20% 100%, #8FB277 0%, #ADC994 45%, #D6E5BF 100%); }
+.g-caramel { --head: #5A3A1E; --ground: radial-gradient(60% 40% at 15% 10%, rgba(255,250,215,.85) 0%, transparent 70%), radial-gradient(120% 90% at 80% 100%, #C08D5C 0%, #DDB688 50%, #F3DFC2 100%); }
+.g-slate   { --head: #1F4E63; --ground: radial-gradient(60% 40% at 85% 8%, rgba(255,250,210,.85) 0%, transparent 70%), radial-gradient(120% 90% at 20% 100%, #6FAFCB 0%, #9ED3E6 50%, #D9F0F7 100%); }
+.g-butter  { --head: #4A5E22; --hl: #FFFFFF; --ground: radial-gradient(60% 40% at 20% 8%, rgba(255,255,255,.8) 0%, transparent 70%), radial-gradient(120% 90% at 80% 100%, #E5CD5C 0%, #F3E482 50%, #FFF6C6 100%); }
+.g-olive   { --head: #3B4A1C; --ground: radial-gradient(60% 40% at 80% 90%, rgba(255,247,190,.85) 0%, transparent 70%), radial-gradient(120% 90% at 20% 0%, #93A65C 0%, #BFCB86 50%, #E6ECC4 100%); }
+
+.pill { align-self: flex-start; background: rgba(255,255,255,0.88); color: #2E3A22; box-shadow: 0 4px 12px rgba(60,50,20,0.15); font-weight: 600; font-size: 13px; padding: 5px 14px; border-radius: 999px; }
+h1, h2 { margin: 0; color: var(--head); font-weight: 800; text-wrap: balance; letter-spacing: -0.045em; line-height: 1.12; text-shadow: var(--head-shadow); }
+h1 { font-size: clamp(42px, 11vw, 62px); line-height: 1.06; }
+h2 { font-size: clamp(30px, 8vw, 42px); }
+.hl { background: var(--hl); border-radius: 12px; padding: 0 9px 3px; text-shadow: none; box-shadow: 0 6px 16px rgba(60,45,20,0.14); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.frost { background: var(--frost); border-radius: 18px; padding: 15px 17px; font-size: 15px; line-height: 1.5; box-shadow: 0 10px 26px rgba(70,55,30,0.14); }
+.frost p { margin: 0; } .frost p + p { margin-top: 10px; }
+.lower { }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font: inherit; font-weight: 700; font-size: 17px; color: #fff; background: var(--green); border: 0; border-radius: 20px; padding: 15px 20px; box-shadow: 0 14px 30px rgba(50,70,30,0.32); cursor: pointer; transition: transform .2s; }
+.btn:hover { transform: translateY(-2px) rotate(-1deg); }
+.btn.ghost { background: rgba(255,255,255,0.88); color: #2E3A22; box-shadow: 0 8px 20px rgba(60,45,20,0.15); }
+.btn:focus-visible, button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; }
+.row .btn { flex: 1 1 200px; }
+
+/* hero bits */
+.badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.badge { background: rgba(255,255,255,0.88); color: #2E3A22; font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; box-shadow: 0 4px 12px rgba(60,50,20,0.12); }
+.badge b { font-weight: 800; }
+.spots { display: flex; align-items: center; gap: 12px; background: var(--frost); border-radius: 18px; padding: 12px 16px; box-shadow: 0 10px 26px rgba(70,55,30,0.14); }
+.spot-dots { display: flex; gap: 6px; flex: none; }
+.spot-dots i { width: 18px; height: 18px; border-radius: 50%; background: var(--green); box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); }
+.spot-dots i.taken { background: #D8D2C2; }
+.spots p { margin: 0; font-size: 14px; font-weight: 600; }
+.spots small { display: block; font-weight: 500; color: var(--muted); font-size: 12.5px; }
+
+/* who does what toggle */
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: rgba(255,255,255,0.55); padding: 4px; border-radius: 999px; }
+.seg button { font: inherit; font-size: 14px; font-weight: 700; color: var(--head); background: transparent; border: 0; border-radius: 999px; padding: 9px 10px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: #fff; color: var(--ink); box-shadow: 0 4px 12px rgba(60,70,30,0.15); }
+.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.steps li { display: flex; gap: 12px; align-items: flex-start; background: var(--frost); border-radius: 16px; padding: 11px 14px; box-shadow: 0 6px 16px rgba(60,45,20,0.1); transition: opacity .3s, transform .3s, background .3s; }
+.steps .n { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--butter); color: var(--head); font-weight: 800; font-size: 13px; display: grid; place-items: center; }
+.steps b { display: block; font-size: 15px; }
+.steps span.d { display: block; font-size: 13.5px; color: var(--muted); line-height: 1.4; }
+.steps .who { margin-left: auto; flex: none; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 3px 8px; border-radius: 6px; background: #E3ECD3; color: var(--green); align-self: center; }
+.steps li[data-who="you"] .who { background: #FBEBC4; color: #6B4A12; }
+.steps.f-you li[data-who="me"], .steps.f-me li[data-who="you"] { opacity: .35; transform: scale(.98); }
+.steps.f-you li[data-who="you"], .steps.f-me li[data-who="me"] { background: #FFF6C2; }
+
+/* deal */
+.split { background: #fff; border-radius: 20px; padding: 16px; box-shadow: 0 18px 40px rgba(70,55,30,0.22); transform: rotate(-1.2deg); display: flex; flex-direction: column; gap: 12px; }
+.split label { font-size: 13px; font-weight: 600; color: var(--muted); display: flex; justify-content: space-between; gap: 8px; }
+.split output { font-weight: 800; color: var(--ink); font-variant-numeric: tabular-nums; }
+.split input[type=range] { width: 100%; accent-color: var(--green); }
+.bar { display: flex; height: 44px; border-radius: 14px; overflow: hidden; font-weight: 800; font-size: 15px; font-variant-numeric: tabular-nums; }
+.bar div { flex: 1; display: grid; place-items: center; }
+.bar .you { background: var(--butter); color: #4A3E2A; }
+.bar .me { background: var(--sage); color: #2E3A22; }
+.bar small { display: block; font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; text-align: center; line-height: 1.1; }
+.terms { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.terms li { background: var(--frost); border-radius: 16px; padding: 11px 13px; font-size: 13.5px; line-height: 1.35; box-shadow: 0 6px 16px rgba(60,45,20,0.1); }
+.terms b { display: block; font-size: 15px; letter-spacing: -0.01em; }
+@media (max-width: 380px) { .terms { grid-template-columns: 1fr; } }
+
+/* fit check */
+.checks { display: flex; flex-direction: column; gap: 8px; }
+.chk { display: flex; align-items: center; gap: 11px; text-align: left; font: inherit; font-size: 14.5px; font-weight: 500; color: var(--ink); background: var(--frost); border: 0; border-radius: 14px; padding: 11px 13px; cursor: pointer; box-shadow: 0 6px 16px rgba(60,45,20,0.1); }
+.chk i { flex: none; width: 22px; height: 22px; border-radius: 7px; border: 2px solid #9FB08A; display: grid; place-items: center; transition: background .2s, border-color .2s; }
+.chk[aria-pressed="true"] { background: #FFF6C2; }
+.chk[aria-pressed="true"] i { background: var(--green); border-color: var(--green); }
+.chk[aria-pressed="true"] i::after { content: ""; width: 10px; height: 5px; border: solid #fff; border-width: 0 0 2.5px 2.5px; transform: translateY(-1px) rotate(-45deg); }
+.verdict { font-weight: 700; font-size: 15px; color: var(--head); background: rgba(255,255,255,0.6); border-radius: 14px; padding: 10px 14px; min-height: 44px; }
+
+/* faq */
+details { background: var(--frost); border-radius: 16px; box-shadow: 0 6px 16px rgba(60,45,20,0.1); }
+summary { cursor: pointer; list-style: none; padding: 13px 44px 13px 16px; font-weight: 700; font-size: 15px; position: relative; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; border-radius: 50%; background: var(--butter); color: var(--head); font-weight: 800; display: grid; place-items: center; transition: transform .25s; }
+details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+details p { margin: 0; padding: 0 16px 14px; font-size: 14px; color: #4A4335; }
+.faq { display: flex; flex-direction: column; gap: 8px; }
+
+/* form */
+form { display: flex; flex-direction: column; gap: 12px; }
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field > span { font-size: 13px; font-weight: 700; color: var(--head); }
+.field > span em { font-style: normal; font-weight: 500; color: var(--muted); }
+input[type=text], input[type=email], select, textarea { font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 1.5px solid rgba(78,107,52,0.18); border-radius: 14px; padding: 11px 13px; width: 100%; }
+textarea { min-height: 92px; resize: vertical; }
+.opts { display: flex; flex-wrap: wrap; gap: 7px; }
+.opts label { cursor: pointer; }
+.opts input { position: absolute; opacity: 0; pointer-events: none; }
+.opts span { display: inline-block; background: #fff; border: 1.5px solid rgba(78,107,52,0.18); border-radius: 999px; padding: 7px 13px; font-size: 14px; font-weight: 600; transition: background .2s; }
+.opts input:checked + span { background: #FFF6C2; border-color: var(--green); color: #2E3A22; }
+.opts input:focus-visible + span { outline: 3px solid var(--green); outline-offset: 2px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 420px) { .two { grid-template-columns: 1fr; } }
+.err { color: #8A2A1A; font-size: 13.5px; font-weight: 600; min-height: 1em; margin: 0; }
+.sent { display: none; flex-direction: column; gap: 10px; }
+.sent.show { display: flex; }
+.foot { text-align: center; font-size: 12.5px; color: var(--muted); }
+.foot a { color: var(--green); font-weight: 600; }
+
+/* stickers */
+.stk { position: absolute; z-index: 3; filter: drop-shadow(3px 6px 6px rgba(70,55,30,0.28)); cursor: pointer; }
+.stk svg { display: block; width: 100%; height: 100%; }
+.stk.spark { width: 42px; height: 42px; } .stk.spark.sm { width: 26px; height: 26px; }
+.stk.heart { width: 52px; height: 48px; }
+.stk.boing svg { animation: boing .6s cubic-bezier(.28,1.7,.5,1) !important; }
+@keyframes boing { 0% { transform: scale(1); } 30% { transform: scale(1.35) rotate(-18deg); } 100% { transform: scale(1) rotate(0); } }
+
+/* motion */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(26px); }
+  .reveal.in { opacity: 1; transform: none; transition: opacity .6s ease-out, transform .7s cubic-bezier(.2,.9,.3,1); }
+  .reveal.in h1, .reveal.in h2 { animation: pop .7s cubic-bezier(.28,1.6,.5,1) .05s both; }
+  .stk.spark svg { animation: twinkle 2.4s ease-in-out infinite; }
+  .stk.heart svg { animation: wobble 2.8s ease-in-out infinite; }
+  .chk:active { transform: scale(.97); }
+}
+@keyframes pop { 0% { opacity: 0; transform: scale(.6) rotate(-4deg) translateY(20px); } 60% { opacity: 1; transform: scale(1.04) rotate(1deg); } 100% { opacity: 1; transform: none; } }
+@keyframes twinkle { 0%,100% { transform: scale(1) rotate(0); } 50% { transform: scale(.78) rotate(25deg); } }
+@keyframes wobble { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg) scale(1.05); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <a class="logo" href="/">Beca <span>Tries</span></a>
+    <div class="right">
+      <div class="menu">
+        <button class="menu-btn" id="siteMenuBtn" type="button" aria-expanded="false" aria-controls="siteMenuList">Menu <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="menu-list" id="siteMenuList" hidden><a href="/">My portfolio</a><a href="/studio/" aria-current="page">Beca Tries Studio</a><a href="/notion/">How I use Notion</a><a href="/process/">How I film &amp; edit</a><a href="/prompt/">My Claude prompt</a></div>
+      </div>
+      <a class="talk-btn" href="#apply">Apply</a>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <section class="card g-caramel reveal">
+    <span class="stk spark" style="top:22px;right:22px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span>
+    <span class="pill">Beca Tries Studio</span>
+    <h1>You film.<br><span class="hl">I do everything</span> else.</h1>
+    <div class="frost">
+      <p>I'm Beca, a UGC creator ranked in Trybe's Top 100. I'm taking what I already do for my own account and doing it for a few other creators.</p>
+      <p>I run Trybe and TikTok Shop accounts built around you, pitch the brands, write the scripts, edit the videos, and submit or post them. You just film and get paid.</p>
+    </div>
+    <div class="badges">
+      <span class="badge">🚀 <b>Trybe Top 100</b> creator</span>
+      <span class="badge">🛒 Trybe + TikTok Shop</span>
+      <span class="badge">🎬 Fitness · Tech · Pet · Lifestyle</span>
+      <span class="badge">📍 Las Vegas</span>
+    </div>
+    <div class="spots" aria-live="polite">
+      <div class="spot-dots" id="spotDots" aria-hidden="true"></div>
+      <p id="spotText">1 founding spot open<small id="spotSub">Starting with one creator. More spots later.</small></p>
+    </div>
+    <div class="row">
+      <a class="btn" href="#apply">Apply for a spot →</a>
+      <a class="btn ghost" href="#how">How it works</a>
+    </div>
+  </section>
+
+  <!-- how it works -->
+  <section class="card g-slate reveal" id="how">
+    <span class="pill">How it works</span>
+    <h2>Who does <span class="hl">what?</span></h2>
+    <div class="seg" role="group" aria-label="Show steps for">
+      <button type="button" data-f="all" aria-pressed="true">Everything</button>
+      <button type="button" data-f="you" aria-pressed="false">Just your part</button>
+    </div>
+    <ol class="steps" id="steps">
+      <li data-who="me"><span class="n">1</span><div><b>Set up your studio accounts</b><span class="d">A Trybe profile and a TikTok Shop account built around you, run by the studio.</span></div><span class="who">Me</span></li>
+      <li data-who="me"><span class="n">2</span><div><b>Build a starter portfolio</b><span class="d">If you don't have examples yet, we make a few together so brands say yes.</span></div><span class="who">Me</span></li>
+      <li data-who="me"><span class="n">3</span><div><b>Pitch brands + request samples</b><span class="d">I apply to Trybe campaigns, reach out to brands that fit you, and request TikTok Shop samples.</span></div><span class="who">Me</span></li>
+      <li data-who="me"><span class="n">4</span><div><b>Write the scripts</b><span class="d">Hooks, lines, and a shot list for every video.</span></div><span class="who">Me</span></li>
+      <li data-who="you"><span class="n">5</span><div><b>Film + upload raw files</b><span class="d">Follow the script, film your A-roll and B-roll, and drop it in our shared folder.</span></div><span class="who">You</span></li>
+      <li data-who="me"><span class="n">6</span><div><b>Edit + submit</b><span class="d">Cuts, captions, and sound. I submit on Trybe and handle revisions.</span></div><span class="who">Me</span></li>
+      <li data-who="me"><span class="n">7</span><div><b>Cross-post to TikTok Shop</b><span class="d">When the brand allows it, the same video goes up on the TikTok Shop account with a product link. One video, two paychecks.</span></div><span class="who">Me</span></li>
+    </ol>
+    <div class="frost"><p>In Las Vegas? I can come film with you in person to start, so we nail your look together.</p></div>
+  </section>
+
+  <!-- the deal -->
+  <section class="card g-butter reveal" id="deal">
+    <span class="stk heart" style="top:20px;right:20px" aria-hidden="true"><svg viewBox="-60 -55 120 110"><path d="M0,45 C-55,10 -60,-25 -38,-42 C-20,-55 -4,-44 0,-30 C4,-44 20,-55 38,-42 C60,-25 55,10 0,45 Z" fill="#8FB277"/><ellipse cx="-28" cy="-30" rx="12" ry="7" fill="rgba(255,255,255,0.5)" transform="rotate(-30 -28 -30)"/></svg></span>
+    <span class="pill">The deal</span>
+    <h2>A simple <span class="hl">50/50</span></h2>
+    <div class="frost"><p>I do most of the work, so we split what our videos earn down the middle: Trybe payouts and TikTok Shop commissions. No setup fee, no monthly fee.</p><p>Payouts come into the studio accounts. At the end of each month, I total everything and send you your half with a statement.</p></div>
+    <div class="split">
+      <label for="earn">If our videos earn this month: <output id="earnOut">$1,000</output></label>
+      <input type="range" id="earn" min="200" max="5000" step="100" value="1000">
+      <div class="bar"><div class="you"><span><small>You keep</small><span id="youAmt">$500</span></span></div><div class="me"><span><small>Studio</small><span id="meAmt">$500</span></span></div></div>
+    </div>
+    <ul class="terms">
+      <li><b>Paid monthly</b>Your half, every month, with a statement showing every payout.</li>
+      <li><b>14 days' notice</b>Either of us can stop at any time, for any reason.</li>
+      <li><b>No lock-in</b>Month to month. The agreement spells out how videos already made are split if we stop.</li>
+      <li><b>Your page stays yours</b>Anything on your own personal accounts is 100% yours.</li>
+    </ul>
+  </section>
+
+  <!-- fit check -->
+  <section class="card g-moss reveal">
+    <span class="stk spark sm" style="top:24px;right:26px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span>
+    <span class="pill">Is this you?</span>
+    <h2>Quick <span class="hl">fit check</span></h2>
+    <div class="checks" id="checks">
+      <button type="button" class="chk" aria-pressed="false"><i></i>I'm comfortable on camera (or want to be).</button>
+      <button type="button" class="chk" aria-pressed="false"><i></i>I can film a few videos a week.</button>
+      <button type="button" class="chk" aria-pressed="false"><i></i>I hate pitching and editing.</button>
+      <button type="button" class="chk" aria-pressed="false"><i></i>I'm cool with the studio running the accounts.</button>
+      <button type="button" class="chk" aria-pressed="false"><i></i>I'll follow a script and hit deadlines.</button>
+    </div>
+    <div class="verdict" id="verdict" aria-live="polite">Tap what sounds like you.</div>
+  </section>
+
+  <!-- faq -->
+  <section class="card g-olive reveal">
+    <span class="pill">Questions</span>
+    <h2>Good to <span class="hl">know</span></h2>
+    <div class="faq">
+      <details><summary>Do I need followers?</summary><p>No. Trybe is about the videos, not your follower count. Brands run your content as ads.</p></details>
+      <details><summary>Do I need Trybe or TikTok Shop already?</summary><p>No. The studio sets up and runs the Trybe and TikTok Shop accounts for your videos, so you don't need either. If you want to post on your own, keep that on your personal accounts so the money stays easy to track.</p></details>
+      <details><summary>How much will I make?</summary><p>I can't promise a number. It depends on how many brands approve and how well the ads perform. I'll show you exactly what comes in every month.</p></details>
+      <details><summary>How do I get paid?</summary><p>Trybe and TikTok Shop pay the studio accounts. At the end of each month I total everything and send you your 50%, with a statement showing every payout.</p></details>
+      <details><summary>What if I want to stop?</summary><p>Give me 14 days' notice. Videos we already made can keep earning for a while, and the agreement spells out exactly how those get split after we stop. Anything you make on your own after that is 100% yours.</p></details>
+      <details><summary>Do you film in person?</summary><p>To start, only in the Las Vegas area. Everywhere else, you film from home with my scripts and shot lists.</p></details>
+      <details><summary>What niches do you take?</summary><p>I'm strongest in fitness, tech, pets and lifestyle, but tell me yours. If I can sell it, I'm in.</p></details>
+    </div>
+  </section>
+
+  <!-- apply -->
+  <section class="card g-caramel reveal" id="apply">
+    <span class="pill">Apply</span>
+    <h2>Want a <span class="hl">spot?</span></h2>
+    <div class="frost"><p>Tell me about you. I read every application, and if we're a fit, I'll send you a link to book a call.</p></div>
+    <form id="form" novalidate>
+      <div class="two">
+        <label class="field"><span>Name</span><input type="text" name="name" autocomplete="name" required></label>
+        <label class="field"><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
+      </div>
+      <div class="two">
+        <label class="field"><span>Instagram <em>(optional)</em></span><input type="text" name="instagram" placeholder="@"></label>
+        <label class="field"><span>TikTok <em>(optional)</em></span><input type="text" name="tiktok" placeholder="@"></label>
+      </div>
+      <div class="field"><span>Have you done UGC on Trybe before?</span>
+        <div class="opts">
+          <label><input type="radio" name="trybe" value="Yes, active"><span>Yes, active</span></label>
+          <label><input type="radio" name="trybe" value="Signed up, not much yet"><span>Signed up, not much yet</span></label>
+          <label><input type="radio" name="trybe" value="Not yet"><span>Not yet</span></label>
+        </div>
+      </div>
+      <div class="field"><span>Have you sold on TikTok Shop before?</span>
+        <div class="opts">
+          <label><input type="radio" name="shop" value="Yes, selling"><span>Yes, selling</span></label>
+          <label><input type="radio" name="shop" value="Approved, not much yet"><span>Approved, not much yet</span></label>
+          <label><input type="radio" name="shop" value="Not yet"><span>Not yet</span></label>
+        </div>
+      </div>
+      <label class="field"><span>Trybe profile or portfolio link <em>(if you have one)</em></span><input type="text" name="portfolio" placeholder="https://"></label>
+      <div class="field"><span>Your niches</span>
+        <div class="opts">
+          <label><input type="checkbox" name="niche" value="Fitness"><span>Fitness</span></label>
+          <label><input type="checkbox" name="niche" value="Beauty"><span>Beauty</span></label>
+          <label><input type="checkbox" name="niche" value="Tech"><span>Tech</span></label>
+          <label><input type="checkbox" name="niche" value="Pets"><span>Pets</span></label>
+          <label><input type="checkbox" name="niche" value="Food"><span>Food</span></label>
+          <label><input type="checkbox" name="niche" value="Home"><span>Home</span></label>
+          <label><input type="checkbox" name="niche" value="Lifestyle"><span>Lifestyle</span></label>
+          <label><input type="checkbox" name="niche" value="Other"><span>Other</span></label>
+        </div>
+      </div>
+      <div class="two">
+        <label class="field"><span>Videos you can film a week</span>
+          <select name="weekly"><option value="">Pick one</option><option>1–2</option><option>3–5</option><option>6–10</option><option>10+</option></select>
+        </label>
+        <label class="field"><span>Are you in Las Vegas?</span>
+          <select name="vegas"><option value="">Pick one</option><option>Yes</option><option>No</option></select>
+        </label>
+      </div>
+      <label class="field"><span>Why do you want a manager?</span><textarea name="why" placeholder="What's been hard? What do you want help with?"></textarea></label>
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn" type="submit">Send my application →</button>
+    </form>
+    <div class="sent" id="sent" aria-live="polite">
+      <div class="frost"><p><b>Your email app should be open with your application ready.</b> Just hit send.</p><p>I'll get back to you within a few days. If you'd rather talk now, grab a time below.</p></div>
+      <a class="btn ghost" id="bookBtn" href="#" target="_blank" rel="noopener" hidden>Book a call →</a>
+      <button class="btn ghost" type="button" id="again">Edit my application</button>
+    </div>
+  </section>
+
+  <p class="foot">Beca Tries Studio · by <a href="https://www.instagram.com/beca_tries/" target="_blank" rel="noopener">@beca_tries</a> · <a href="/">See my portfolio</a></p>
+</div>
+
+<script>
+(function () {
+  /* ---- settings: edit these ---- */
+  var SPOTS_TOTAL = 1;          // creators at once (bump to 2–3 when you expand)
+  var SPOTS_TAKEN = 0;          // bump this as you sign creators
+  var CALENDLY = 'https://calendly.com/beca-tries';
+  var EMAIL = ['beca.tries', 'gmail.com'].join('@');
+
+  // spots
+  var open = Math.max(0, SPOTS_TOTAL - SPOTS_TAKEN), dots = document.getElementById('spotDots');
+  for (var i = 0; i < SPOTS_TOTAL; i++) { var d = document.createElement('i'); if (i < SPOTS_TAKEN) d.className = 'taken'; dots.appendChild(d); }
+  var label = SPOTS_TOTAL === 1 ? (open ? '1 founding spot open' : 'Founding spot taken') : (open ? open + ' of ' + SPOTS_TOTAL + ' spots open' : 'All spots full');
+  document.getElementById('spotText').firstChild.nodeValue = label;
+  document.getElementById('spotSub').textContent = open ? (SPOTS_TOTAL === 1 ? 'Starting with one creator. More spots later.' : 'I keep my roster small on purpose.') : 'Apply anyway, and you\'ll be on the waitlist.';
+
+  // who does what
+  var steps = document.getElementById('steps');
+  document.querySelectorAll('.seg button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.seg button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      steps.className = 'steps' + (b.dataset.f === 'you' ? ' f-you' : '');
+    });
+  });
+
+  // split slider
+  var earn = document.getElementById('earn'), fmt = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+  function upd() { var v = +earn.value; document.getElementById('earnOut').textContent = fmt(v); document.getElementById('youAmt').textContent = fmt(v / 2); document.getElementById('meAmt').textContent = fmt(v / 2); }
+  earn.addEventListener('input', upd); upd();
+
+  // fit check
+  var msgs = ['Tap what sounds like you.', 'Okay, keep going…', 'Getting warmer!', 'Sounds like a fit 👀', 'You should apply.', 'We need to talk. Apply below ↓'];
+  var chks = document.querySelectorAll('.chk'), verdict = document.getElementById('verdict');
+  chks.forEach(function (c) { c.addEventListener('click', function () {
+    c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+    var n = document.querySelectorAll('.chk[aria-pressed="true"]').length; verdict.textContent = msgs[n];
+  }); });
+
+  // stickers boing
+  document.querySelectorAll('.stk').forEach(function (s) { s.addEventListener('click', function () { s.classList.remove('boing'); void s.offsetWidth; s.classList.add('boing'); }); });
+
+  // reveal on scroll
+  var rev = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12 });
+    rev.forEach(function (r) { io.observe(r); });
+  } else rev.forEach(function (r) { r.classList.add('in'); });
+
+  // application -> email
+  var form = document.getElementById('form'), err = document.getElementById('err'), sent = document.getElementById('sent');
+  var book = document.getElementById('bookBtn');
+  if (CALENDLY) { book.href = CALENDLY; book.hidden = false; }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = form.elements, name = f.name.value.trim(), email = f.email.value.trim();
+    if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { err.textContent = 'Add your name and a real email so I can reply.'; return; }
+    err.textContent = '';
+    var trybe = (form.querySelector('input[name=trybe]:checked') || {}).value || '-';
+    var niches = Array.prototype.map.call(form.querySelectorAll('input[name=niche]:checked'), function (x) { return x.value; }).join(', ') || '-';
+    var body = [
+      'Name: ' + name, 'Email: ' + email,
+      'Instagram: ' + (f.instagram.value.trim() || '-'), 'TikTok: ' + (f.tiktok.value.trim() || '-'),
+      'On Trybe: ' + trybe, 'TikTok Shop affiliate: ' + ((form.querySelector('input[name=shop]:checked') || {}).value || '-'), 'Portfolio: ' + (f.portfolio.value.trim() || '-'),
+      'Niches: ' + niches, 'Videos per week: ' + (f.weekly.value || '-'), 'In Las Vegas: ' + (f.vegas.value || '-'),
+      '', 'Why I want a manager:', f.why.value.trim() || '-'
+    ].join('\n');
+    window.location.href = 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Beca Tries Studio application: ' + name) + '&body=' + encodeURIComponent(body);
+    form.style.display = 'none'; sent.classList.add('show');
+  });
+  document.getElementById('again').addEventListener('click', function () { form.style.display = ''; sent.classList.remove('show'); });
+
+  // site menu
+  var btn = document.getElementById('siteMenuBtn'), list = document.getElementById('siteMenuList');
+  function set(o) { btn.setAttribute('aria-expanded', o ? 'true' : 'false'); list.hidden = !o; }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); set(list.hidden); });
+  document.addEventListener('click', function (e) { if (!list.hidden && !e.target.closest('.sitenav .menu')) set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !list.hidden) { set(false); btn.focus(); } });
+})();
+</script>
+</body>
+</html>

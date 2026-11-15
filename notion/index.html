@@ -77,7 +77,7 @@ body {
 .pill { background: rgba(255,255,255,0.88); color: var(--sage-ink); box-shadow: 0 4px 12px rgba(60,50,20,0.15); font-weight: 600; font-size: 13px; padding: 5px 14px; border-radius: 999px; letter-spacing: -0.01em; }
 .count { background: rgba(255, 255, 255, 0.6); color: #4A3E2A; font-weight: 500; font-size: 12px; padding: 4px 11px; border-radius: 999px; font-variant-numeric: tabular-nums; }
 h1, h2 {
-  margin: 0; color: var(--head); font-weight: 800; text-transform: lowercase; text-wrap: balance;
+  margin: 0; color: var(--head); font-weight: 800; text-wrap: balance;
   letter-spacing: -0.045em; line-height: 0.98; text-shadow: var(--head-shadow);
   transform-origin: 0% 70%; flex: none;
 }
@@ -92,7 +92,7 @@ h2 { font-size: clamp(32px, 8.5vw, 46px); }
 }
 .frost p { margin: 0; }
 .frost p + p { margin-top: 10px; }
-.lower { text-transform: lowercase; }
+.lower { }
 .cta-tag { align-self: flex-start; background: var(--butter); color: #4A3E2A; box-shadow: 0 6px 16px rgba(80,60,20,0.2); font-weight: 600; font-size: 14px; padding: 7px 16px; border-radius: 999px; flex: none; }
 .spacer { flex: 1 1 0; min-height: 0; }
 
@@ -164,7 +164,7 @@ pre {
 
 
 /* interactive bits */
-.tap-hint { align-self: flex-start; font-size: 12.5px; font-weight: 600; color: rgba(50,40,20,0.7); background: rgba(255,255,255,0.55); padding: 4px 12px; border-radius: 999px; text-transform: lowercase; flex: none; }
+.tap-hint { align-self: flex-start; font-size: 12.5px; font-weight: 600; color: rgba(50,40,20,0.7); background: rgba(255,255,255,0.55); padding: 4px 12px; border-radius: 999px; flex: none; }
 .tally { font-weight: 700; color: var(--green); margin-left: 4px; font-variant-numeric: tabular-nums; }
 .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
 .chk { display: flex; align-items: center; gap: 9px; text-align: left; font: inherit; font-size: 14px; font-weight: 500; color: var(--frost-ink); background: var(--frost); border: 0; border-radius: 14px; padding: 11px 12px; cursor: pointer; box-shadow: 0 6px 16px rgba(60,45,20,0.12); min-width: 0; }
@@ -212,7 +212,7 @@ pre {
 .refs:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; border-radius: 18px; }
 .ref { position: absolute; left: 50%; top: 50%; margin: 0; width: 41%; max-width: 170px; aspect-ratio: 9 / 16; transition: transform .55s cubic-bezier(.3,1.35,.5,1), opacity .3s; }
 .ref img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; border: 4px solid #fff; box-shadow: 0 14px 30px rgba(60,40,20,0.3); display: block; }
-.ref figcaption { position: absolute; left: 50%; bottom: -14px; transform: translateX(-50%); width: 132%; text-align: center; background: var(--butter); color: #3E3420; font-size: 12px; line-height: 1.3; padding: 6px 10px; border-radius: 12px; box-shadow: 0 6px 14px rgba(60,40,20,0.2); text-transform: lowercase; transition: opacity .25s; }
+.ref figcaption { position: absolute; left: 50%; bottom: -14px; transform: translateX(-50%); width: 132%; text-align: center; background: var(--butter); color: #3E3420; font-size: 12px; line-height: 1.3; padding: 6px 10px; border-radius: 12px; box-shadow: 0 6px 14px rgba(60,40,20,0.2); transition: opacity .25s; }
 .ref[data-pos="0"] { transform: translate(-50%,-50%) rotate(-2deg); z-index: 3; }
 .ref[data-pos="1"] { transform: translate(2%,-50%) rotate(9deg) scale(.88); z-index: 2; }
 .ref[data-pos="2"] { transform: translate(-102%,-50%) rotate(-10deg) scale(.84); z-index: 1; }
@@ -250,7 +250,7 @@ pre {
 
 /* chapters + photo posts */
 .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: rgba(78,107,52,0.1); padding: 5px; border-radius: 999px; }
-.tab { font: inherit; font-size: 13.5px; font-weight: 600; color: #4E6B34; background: transparent; border: 0; border-radius: 999px; padding: 9px 10px; cursor: pointer; transition: background .25s, color .25s, box-shadow .25s; text-transform: lowercase; }
+.tab { font: inherit; font-size: 13.5px; font-weight: 600; color: #4E6B34; background: transparent; border: 0; border-radius: 999px; padding: 9px 10px; cursor: pointer; transition: background .25s, color .25s, box-shadow .25s; }
 .tab[aria-current="true"] { background: #fff; color: #2E3A22; box-shadow: 0 4px 12px rgba(60,70,30,0.15); }
 .h1-film { font-size: clamp(38px, 9.5vw, 52px); }
 .post { margin: 0 auto; position: relative; flex: 1 1 auto; min-height: 0; max-height: 300px; aspect-ratio: 4 / 5; max-width: 72%; display: flex; }
@@ -262,7 +262,7 @@ pre {
 .nums b { flex: none; width: 34px; height: 34px; border-radius: 50%; background: #FFF3A0; color: #4A5E22; display: grid; place-items: center; font-weight: 800; }
 .done { display: flex; flex-wrap: wrap; gap: 8px; }
 .done span { background: var(--frost); color: var(--frost-ink); border-radius: 999px; padding: 8px 14px; font-size: 14px; font-weight: 600; box-shadow: 0 6px 14px rgba(60,45,20,0.12); }
-.jump { align-self: stretch; font: inherit; font-weight: 700; font-size: 15px; color: #fff; background: #4E6B34; border: 0; border-radius: 999px; padding: 12px 18px; cursor: pointer; box-shadow: 0 8px 20px rgba(40,60,20,0.3); text-transform: lowercase; flex: none; }
+.jump { align-self: stretch; font: inherit; font-weight: 700; font-size: 15px; color: #fff; background: #4E6B34; border: 0; border-radius: 999px; padding: 12px 18px; cursor: pointer; box-shadow: 0 8px 20px rgba(40,60,20,0.3); flex: none; }
 .jump:hover { filter: brightness(1.08); }
 @media (prefers-reduced-motion: no-preference) {
   .slide.play .post img { animation: deal .7s cubic-bezier(.2,1.25,.4,1) .28s both; --tilt: 0deg; }
@@ -279,7 +279,7 @@ pre {
 .soc { display: inline-flex; align-items: baseline; gap: 6px; text-decoration: none; background: rgba(255,255,255,0.9); color: #2E3A22; border-radius: 999px; padding: 7px 13px; box-shadow: 0 6px 16px rgba(60,70,30,0.16); transition: transform .2s; }
 .soc:hover { transform: translateY(-2px) rotate(-1deg); }
 .soc:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
-.soc-k { font-size: 11.5px; font-weight: 600; color: #6B7556; text-transform: lowercase; }
+.soc-k { font-size: 11.5px; font-weight: 600; color: #6B7556; }
 .soc-h { font-size: 13.5px; font-weight: 700; }
 .soc-stat { width: 100%; font-size: 12.5px; font-weight: 600; color: #3B4A1C; padding-left: 4px; }
 @media (prefers-reduced-motion: no-preference) {
@@ -356,7 +356,7 @@ pre {
 .dots { display: flex; justify-content: center; gap: 7px; }
 .dots button { width: 7px; height: 7px; padding: 0; border-radius: 999px; border: 0; background: rgba(78,107,52,0.25); cursor: pointer; transition: width .3s, background .3s; }
 .dots button[aria-current="true"] { width: 22px; background: var(--green); }
-.hint { text-align: center; color: var(--soft); font-size: 12.5px; text-transform: lowercase; }
+.hint { text-align: center; color: var(--soft); font-size: 12.5px; }
 .next-nudge { animation: nudge 1.6s ease-in-out 1.4s 3; }
 @keyframes nudge { 0%,100% { transform: none; } 50% { transform: translateX(5px); } }
 
@@ -451,7 +451,7 @@ pre {
 
 /* notion-ish table */
 .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: rgba(255,255,255,0.55); padding: 4px; border-radius: 999px; flex: none; }
-.seg button { font: inherit; font-size: 13px; font-weight: 600; color: var(--head); background: transparent; border: 0; border-radius: 999px; padding: 8px 10px; cursor: pointer; text-transform: lowercase; }
+.seg button { font: inherit; font-size: 13px; font-weight: 600; color: var(--head); background: transparent; border: 0; border-radius: 999px; padding: 8px 10px; cursor: pointer; }
 .seg button[aria-pressed="true"] { background: #fff; color: var(--frost-ink); box-shadow: 0 4px 12px rgba(60,70,30,0.15); }
 .db { overflow: auto; overscroll-behavior: contain; flex: 1 1 0; min-height: 0; }
 .db table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
@@ -484,7 +484,7 @@ pre {
 .chips span { background: rgba(255,255,255,0.75); color: var(--frost-ink); font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 999px; }
 
 /* get it */
-.get { display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; background: var(--green); color: #fff; font-weight: 700; font-size: 18px; letter-spacing: -0.01em; padding: 16px 20px; border-radius: 20px; box-shadow: 0 14px 30px rgba(50,70,30,0.35); flex: none; transition: transform .2s; text-transform: lowercase; }
+.get { display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; background: var(--green); color: #fff; font-weight: 700; font-size: 18px; letter-spacing: -0.01em; padding: 16px 20px; border-radius: 20px; box-shadow: 0 14px 30px rgba(50,70,30,0.35); flex: none; transition: transform .2s; }
 .get:hover { transform: translateY(-2px) rotate(-1deg); }
 .get:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .get svg { width: 18px; height: 18px; }
@@ -507,19 +507,19 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
 <body>
 <div class="carousel">
   <nav class="sitenav" aria-label="Site">
-    <a class="logo" href="/">beca <span>tries</span></a>
+    <a class="logo" href="/">Beca <span>Tries</span></a>
     <div class="right">
       <div class="menu">
-        <button class="menu-btn" id="siteMenuBtn" type="button" aria-expanded="false" aria-controls="siteMenuList">menu <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="menu-list" id="siteMenuList" hidden><a href="/">my portfolio</a><a href="/notion/" aria-current="page">how i use notion</a><a href="/process/">how i film &amp; edit</a><a href="/prompt/">my claude prompt</a></div>
+        <button class="menu-btn" id="siteMenuBtn" type="button" aria-expanded="false" aria-controls="siteMenuList">Menu <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="menu-list" id="siteMenuList" hidden><a href="/">My portfolio</a><a href="/studio/">Beca Tries Studio</a><a href="/notion/" aria-current="page">How I use Notion</a><a href="/process/">How I film &amp; edit</a><a href="/prompt/">My Claude prompt</a></div>
       </div>
-      <a class="talk-btn" href="/#collab">let's talk</a>
+      <a class="talk-btn" href="/#collab">Let's talk</a>
     </div>
   </nav>
   <nav class="tabs" aria-label="Chapters">
-    <button type="button" class="tab" data-ch="0" aria-current="true">the system</button>
-    <button type="button" class="tab" data-ch="1">how i use it</button>
-    <button type="button" class="tab" data-ch="2">get it</button>
+    <button type="button" class="tab" data-ch="0" aria-current="true">The system</button>
+    <button type="button" class="tab" data-ch="1">How I use it</button>
+    <button type="button" class="tab" data-ch="2">Get it</button>
   </nav>
   <div class="viewport" id="viewport" aria-roledescription="carousel" aria-label="How I use Notion">
     <div class="track" id="track">
@@ -528,8 +528,8 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
       <section class="slide g-caramel" aria-label="1 of 8">
         <span class="stk spark" style="top:84px;right:26px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span>
         <span class="stk heart" style="bottom:120px;right:22px" aria-hidden="true"><svg viewBox="-60 -55 120 110"><path d="M0,45 C-55,10 -60,-25 -38,-42 C-20,-55 -4,-44 0,-30 C4,-44 20,-55 38,-42 C60,-25 55,10 0,45 Z" fill="#8FB277"/><ellipse cx="-28" cy="-30" rx="12" ry="7" fill="rgba(255,255,255,0.5)" transform="rotate(-30 -28 -30)"/><circle cx="-9" cy="-7" r="5" fill="#4E6B34"/><circle cx="9" cy="-7" r="5" fill="#4E6B34"/><circle cx="-9" cy="9" r="5" fill="#4E6B34"/><circle cx="9" cy="9" r="5" fill="#4E6B34"/></svg></span>
-        <div class="top"><span class="pill">how i use notion</span><span class="count">1/8</span></div>
-        <h1>how i track <span class="hl">every video</span> i film</h1>
+        <div class="top"><span class="pill">How I use Notion</span><span class="count">1/8</span></div>
+        <h1>How I track <span class="hl">every video</span> I film</h1>
         <div class="spacer"></div>
         <div class="hop" aria-label="Example card moving through every stage">
           <div class="hop-title">Glow Serum: morning routine</div>
@@ -537,36 +537,36 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
           <div class="hop-bar" id="hopBar" style="grid-template-columns:repeat(6,1fr)"><span></span><span></span><span></span><span></span><span></span><span></span></div>
         </div>
         <div class="spacer"></div>
-        <div class="frost lower"><p>one notion database. one card per video, from idea to posted.</p><p>my free template is at the end →</p></div>
+        <div class="frost lower"><p>One Notion database. One card per video, from idea to posted.</p><p>My free template is at the end →</p></div>
       </section>
 
       <!-- 2 stages -->
       <section class="slide g-slate" aria-label="2 of 8">
-        <div class="top"><span class="pill">the system</span><span class="count">2/8</span></div>
-        <h2>every video is <span class="hl">one card</span></h2>
-        <div class="frost lower"><p>the card moves through stages, so at any point i know what's filmed, what's being edited, and what's still just an idea.</p><p><b>two finish lines:</b> submitted is for videos the brand or trybe runs. posted is anything on my own page, brand deal or personal.</p><p><b>paid</b> is its own checkbox, since submitted or posted doesn't always mean paid yet.</p></div>
+        <div class="top"><span class="pill">The system</span><span class="count">2/8</span></div>
+        <h2>Every video is <span class="hl">one card</span></h2>
+        <div class="frost lower"><p>The card moves through stages, so at any point I know what's filmed, what's being edited, and what's still just an idea.</p><p><b>Two finish lines:</b> Submitted is for videos the brand or Trybe runs. Posted is anything on my own page, brand deal or personal.</p><p><b>Paid</b> is its own checkbox, since submitted or posted doesn't always mean paid yet.</p></div>
         <div class="stages" id="stages">
-          <button type="button" class="stage" data-s="Idea"><span class="n">1</span><span class="tag" data-s="Idea">Idea</span><span class="desc">brand said yes</span></button>
-          <button type="button" class="stage" data-s="Script ready"><span class="n">2</span><span class="tag" data-s="Script ready">Script ready</span><span class="desc">ready for filming day</span></button>
-          <button type="button" class="stage" data-s="Filmed"><span class="n">3</span><span class="tag" data-s="Filmed">Filmed</span><span class="desc">a roll + b roll done</span></button>
-          <button type="button" class="stage" data-s="Editing"><span class="n">4</span><span class="tag" data-s="Editing">Editing</span><span class="desc">cuts, captions, sound</span></button>
-          <button type="button" class="stage" data-s="Edited"><span class="n">5</span><span class="tag" data-s="Edited">Edited</span><span class="desc">final check</span></button>
-          <button type="button" class="stage" data-s="Submitted"><span class="n">6</span><span class="tag" data-s="Submitted">Submitted</span><span class="desc">sent to trybe or the brand. done!</span></button>
-          <button type="button" class="stage" data-s="Posted"><span class="n">7</span><span class="tag" data-s="Posted">Posted</span><span class="desc">on my own page. done!</span></button>
+          <button type="button" class="stage" data-s="Idea"><span class="n">1</span><span class="tag" data-s="Idea">Idea</span><span class="desc">Brand said yes</span></button>
+          <button type="button" class="stage" data-s="Script ready"><span class="n">2</span><span class="tag" data-s="Script ready">Script ready</span><span class="desc">Ready for filming day</span></button>
+          <button type="button" class="stage" data-s="Filmed"><span class="n">3</span><span class="tag" data-s="Filmed">Filmed</span><span class="desc">A-roll + B-roll done</span></button>
+          <button type="button" class="stage" data-s="Editing"><span class="n">4</span><span class="tag" data-s="Editing">Editing</span><span class="desc">Cuts, captions, sound</span></button>
+          <button type="button" class="stage" data-s="Edited"><span class="n">5</span><span class="tag" data-s="Edited">Edited</span><span class="desc">Final check</span></button>
+          <button type="button" class="stage" data-s="Submitted"><span class="n">6</span><span class="tag" data-s="Submitted">Submitted</span><span class="desc">Sent to Trybe or the brand. Done!</span></button>
+          <button type="button" class="stage" data-s="Posted"><span class="n">7</span><span class="tag" data-s="Posted">Posted</span><span class="desc">On my own page. Done!</span></button>
         </div>
       </section>
 
       <!-- 3 how many -->
       <section class="slide g-moss" aria-label="3 of 8">
         <span class="stk spark sm" style="top:70px;right:24px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span>
-        <div class="top"><span class="pill">the system</span><span class="count">3/8</span></div>
-        <h2>how many videos does a <span class="hl">brand get?</span></h2>
-        <div class="frost lower"><p>before i script anything, i decide how many cards a brand gets.</p></div>
+        <div class="top"><span class="pill">The system</span><span class="count">3/8</span></div>
+        <h2>How many videos does a <span class="hl">brand get?</span></h2>
+        <div class="frost lower"><p>Before I script anything, I decide how many cards a brand gets.</p></div>
         <div class="deals" id="deals">
-          <button type="button" class="deal" data-n="1" aria-pressed="true">gmv / commission<small>commission only</small></button>
-          <button type="button" class="deal" data-n="2" aria-pressed="false">ad spend<small>a few ads running</small></button>
-          <button type="button" class="deal" data-n="3" aria-pressed="false">ad spend<small>lots of ads running</small></button>
-          <button type="button" class="deal" data-n="c" aria-pressed="false">paid collab<small>whatever we signed</small></button>
+          <button type="button" class="deal" data-n="1" aria-pressed="true">GMV / commission<small>Commission only</small></button>
+          <button type="button" class="deal" data-n="2" aria-pressed="false">Ad spend<small>A few ads running</small></button>
+          <button type="button" class="deal" data-n="3" aria-pressed="false">Ad spend<small>Lots of ads running</small></button>
+          <button type="button" class="deal" data-n="c" aria-pressed="false">Paid collab<small>Whatever we signed</small></button>
         </div>
         <div class="result">
           <div class="stack" id="stack">
@@ -576,32 +576,32 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
             <span class="vc" style="transform:rotate(0)"></span>
           </div>
         </div>
-        <div class="tap-hint">tip: look the brand up in the meta ad library to see how many ads they're running</div>
+        <div class="tap-hint">Tip: look the brand up in the Meta Ad Library to see how many ads they're running</div>
       </section>
 
       <!-- 4 filming day -->
       <section class="slide g-espresso" aria-label="4 of 8">
-        <div class="top"><span class="pill">how i use it</span><span class="count">4/8</span></div>
-        <h2>filming day is <span class="hl">one view</span></h2>
+        <div class="top"><span class="pill">How I use it</span><span class="count">4/8</span></div>
+        <h2>Filming day is <span class="hl">one view</span></h2>
         <div class="seg" role="group" aria-label="Database view">
-          <button type="button" id="vAll" aria-pressed="true">all videos</button>
-          <button type="button" id="vFilm" aria-pressed="false">🎬 filming day</button>
+          <button type="button" id="vAll" aria-pressed="true">All videos</button>
+          <button type="button" id="vFilm" aria-pressed="false">🎬 Filming day</button>
         </div>
         <div class="float tilt-l">
           <div class="db"><table>
             <thead><tr><th>Video</th><th>Status</th><th>Film by</th></tr></thead>
             <tbody id="rows"></tbody>
           </table></div>
-          <div class="view-note" id="viewNote">every example card in the template</div>
+          <div class="view-note" id="viewNote">Every example card in the template</div>
         </div>
-        <div class="frost lower"><p>it only shows what's script ready, sorted by film by date. batch them all in one go while the light is good.</p></div>
+        <div class="frost lower"><p>It only shows what's script ready, sorted by film by date. Batch them all in one go while the light is good.</p></div>
       </section>
 
       <!-- 5 inside a card -->
       <section class="slide g-olive" aria-label="5 of 8">
         <span class="stk heart" style="top:80px;right:22px" aria-hidden="true"><svg viewBox="-60 -55 120 110"><path d="M0,45 C-55,10 -60,-25 -38,-42 C-20,-55 -4,-44 0,-30 C4,-44 20,-55 38,-42 C60,-25 55,10 0,45 Z" fill="#E9C94F"/><ellipse cx="-28" cy="-30" rx="12" ry="7" fill="rgba(255,255,255,0.5)" transform="rotate(-30 -28 -30)"/><circle cx="-9" cy="-7" r="5" fill="#A88A20"/><circle cx="9" cy="-7" r="5" fill="#A88A20"/><circle cx="-9" cy="9" r="5" fill="#A88A20"/><circle cx="9" cy="9" r="5" fill="#A88A20"/></svg></span>
-        <div class="top"><span class="pill">how i use it</span><span class="count">5/8</span></div>
-        <h2>inside <span class="hl">each card</span></h2>
+        <div class="top"><span class="pill">How I use it</span><span class="count">5/8</span></div>
+        <h2>Inside <span class="hl">each card</span></h2>
         <div class="float tilt-r">
           <div class="float-head"><span>Glow Serum: morning routine</span><span class="tag" data-s="Script ready">Script ready</span></div>
           <dl class="props">
@@ -620,61 +620,61 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
             </tbody>
           </table></div>
         </div>
-        <div class="frost lower"><p>one line per row, with the b roll and camera angle next to it. the script is a guide, so i tweak lines while filming so it sounds like me.</p></div>
+        <div class="frost lower"><p>One line per row, with the B-roll and camera angle next to it. The script is a guide, so I tweak lines while filming so it sounds like me.</p></div>
       </section>
 
       <!-- 6 how i script -->
       <section class="slide g-caramel" aria-label="6 of 8">
         <span class="stk spark" style="top:80px;right:28px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span>
-        <div class="top"><span class="pill">how i use it</span><span class="count">6/8</span></div>
-        <h2>how i <span class="hl">script</span></h2>
-        <div class="frost lower"><p>before i write a single line:</p></div>
+        <div class="top"><span class="pill">How I use it</span><span class="count">6/8</span></div>
+        <h2>How I <span class="hl">script</span></h2>
+        <div class="frost lower"><p>Before I write a single line:</p></div>
         <div class="spacer"></div>
         <div class="checks" style="grid-template-columns:1fr">
-          <button type="button" class="chk" aria-pressed="false"><i></i><span>read the brand's brief. no brief? check their website and reviews.</span></button>
-          <button type="button" class="chk" aria-pressed="false"><i></i><span>find the pain point the product actually solves for their customer.</span></button>
-          <button type="button" class="chk" aria-pressed="false"><i></i><span>check the meta ad library for what's already running and performing.</span></button>
-          <button type="button" class="chk" aria-pressed="false"><i></i><span>base the hook and angle on what's converting, then make it sound like me.</span></button>
+          <button type="button" class="chk" aria-pressed="false"><i></i><span>Read the brand's brief. No brief? Check their website and reviews.</span></button>
+          <button type="button" class="chk" aria-pressed="false"><i></i><span>Find the pain point the product actually solves for their customer.</span></button>
+          <button type="button" class="chk" aria-pressed="false"><i></i><span>Check the Meta Ad Library for what's already running and performing.</span></button>
+          <button type="button" class="chk" aria-pressed="false"><i></i><span>Base the hook and angle on what's converting, then make it sound like me.</span></button>
         </div>
         <div class="spacer"></div>
-        <div class="tap-hint">tap to check off <span class="tally" id="tally">0/4</span></div>
+        <div class="tap-hint">Tap to check off <span class="tally" id="tally">0/4</span></div>
       </section>
 
       <!-- 7 what's in it -->
       <section class="slide g-slate" aria-label="7 of 8">
-        <div class="top"><span class="pill">get it</span><span class="count">7/8</span></div>
-        <h2>what's in the <span class="hl">template</span></h2>
+        <div class="top"><span class="pill">Get it</span><span class="count">7/8</span></div>
+        <h2>What's in the <span class="hl">template</span></h2>
         <ul class="views lower">
-          <li class="main"><b>all videos</b><span>simple rows, my main view</span></li>
-          <li><b>🎬 filming day</b><span>script ready, by film date</span></li>
-          <li><b>📋 pipeline board</b><span>cards by stage</span></li>
-          <li><b>📅 posting calendar</b><span>by post date</span></li>
-          <li><b>⏰ due dates</b><span>soonest first</span></li>
-          <li><b>💸 unpaid</b><span>done but not paid yet</span></li>
+          <li class="main"><b>All videos</b><span>Simple rows, my main view</span></li>
+          <li><b>🎬 Filming day</b><span>Script ready, by film date</span></li>
+          <li><b>📋 Pipeline board</b><span>Cards by stage</span></li>
+          <li><b>📅 Posting calendar</b><span>By post date</span></li>
+          <li><b>⏰ Due dates</b><span>Soonest first</span></li>
+          <li><b>💸 Unpaid</b><span>Done but not paid yet</span></li>
         </ul>
-        <div class="frost lower"><p>every card tracks:</p></div>
+        <div class="frost lower"><p>Every card tracks:</p></div>
         <div class="chips lower">
-          <span>brand</span><span>status</span><span>deal type</span><span>film by</span><span>due date</span><span>post date</span><span>format</span><span>platforms</span><span>posted link</span><span>paid</span><span>notes</span>
+          <span>Brand</span><span>Status</span><span>Deal type</span><span>Film by</span><span>Due date</span><span>Post date</span><span>Format</span><span>Platforms</span><span>Posted link</span><span>Paid</span><span>Notes</span>
         </div>
-        <div class="frost lower"><p><b>everything in there is an example.</b> use them to see how it fits together, then delete them and fill in your own once you're ready.</p></div>
+        <div class="frost lower"><p><b>Everything in there is an example.</b> Use them to see how it fits together, then delete them and fill in your own once you're ready.</p></div>
       </section>
 
       <!-- 8 get it -->
       <section class="slide g-moss" aria-label="8 of 8">
         <span class="stk spark" style="top:84px;right:28px" aria-hidden="true"><svg viewBox="-50 -50 100 100"><path d="M0,-48 C6,-10 10,-6 48,0 C10,6 6,10 0,48 C-6,10 -10,6 -48,0 C-10,-6 -6,-10 0,-48 Z" fill="#fff" stroke="#E2DCC8" stroke-width="2"/></svg></span>
         <span class="stk heart" style="bottom:90px;left:20px" aria-hidden="true"><svg viewBox="-60 -55 120 110"><path d="M0,45 C-55,10 -60,-25 -38,-42 C-20,-55 -4,-44 0,-30 C4,-44 20,-55 38,-42 C60,-25 55,10 0,45 Z" fill="#B9834F"/><ellipse cx="-28" cy="-30" rx="12" ry="7" fill="rgba(255,255,255,0.5)" transform="rotate(-30 -28 -30)"/><circle cx="-9" cy="-7" r="5" fill="#7A5330"/><circle cx="9" cy="-7" r="5" fill="#7A5330"/><circle cx="-9" cy="9" r="5" fill="#7A5330"/><circle cx="9" cy="9" r="5" fill="#7A5330"/></svg></span>
-        <div class="top"><span class="pill">get it</span><span class="count">8/8</span></div>
-        <h2>grab my <span class="hl">template</span></h2>
+        <div class="top"><span class="pill">Get it</span><span class="count">8/8</span></div>
+        <h2>Grab my <span class="hl">template</span></h2>
         <div class="spacer"></div>
         <ol class="howto lower">
-          <li>open the template in notion.</li>
-          <li>hit <b>duplicate</b> in the top right.</li>
-          <li>delete my example cards and add your own once you're ready.</li>
+          <li>Open the template in Notion.</li>
+          <li>Hit <b>duplicate</b> in the top right.</li>
+          <li>Delete my example cards and add your own once you're ready.</li>
         </ol>
         <div class="spacer"></div>
-        <a class="get" href="https://quiet-cover-43d.notion.site/4326bf7f229d489e88abc5956e072a44?v=2d24fa057eb142d2b311f698c283e8c0" target="_blank" rel="noopener">get the free template<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+        <a class="get" href="https://quiet-cover-43d.notion.site/4326bf7f229d489e88abc5956e072a44?v=2d24fa057eb142d2b311f698c283e8c0" target="_blank" rel="noopener">Get the free template<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
         <div class="spacer"></div>
-        <a class="cta-tag cta-link" href="https://www.instagram.com/beca_tries/" target="_blank" rel="noopener">follow @beca_tries for more ✦</a>
+        <a class="cta-tag cta-link" href="https://www.instagram.com/beca_tries/" target="_blank" rel="noopener">Follow @beca_tries for more ✦</a>
       </section>
 
     </div>
@@ -684,7 +684,7 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
     <div class="dots" id="dots" aria-label="Slides"></div>
     <button class="arrow next next-nudge" id="next" type="button" aria-label="Next slide"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 3 5 5-5 5"/></svg></button>
   </div>
-  <p class="hint">swipe or tap the arrows</p>
+  <p class="hint">Swipe or tap the arrows</p>
 </div>
 
 <script>
@@ -842,7 +842,7 @@ h1 .hl.big { white-space: normal; line-height: 0.95; padding: 2px 10px 6px; }
       tr.classList.toggle('hide', film && tr.dataset.s !== 'Script ready');
       tbody.appendChild(tr);
     });
-    note.textContent = film ? '4 videos to batch on Nov 3' : 'every example card in the template';
+    note.textContent = film ? '4 videos to batch on Nov 3' : 'Every example card in the template';
   }
   vAll.addEventListener('click', function () { setView(false); });
   vFilm.addEventListener('click', function () { setView(true); });
